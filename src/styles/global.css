@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;700&display=swap");
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glow-effect {
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.glow-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2), 0 0 20px rgba(139, 92, 246, 0.2);
+}
+.section-glass {
+  background: rgba(15, 23, 42, 0.3);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem;
+}
+
+.text-inter {
+  font-family: inter, "Segoe UI", "sans-serif";
+}
+.text-text-light {
+  font-family: "Space Grotesk" !important;
+}
