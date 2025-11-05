@@ -131,7 +131,7 @@ export default function Header() {
                 carlosvarao.frontend@hotmail.com
               </a>
               <a
-                className="text-sm hover:text-primary"
+                className="text-sm hover:text-primary "
                 href="tel:+55639992576214"
               >
                 +55 (63) 99925-6214
