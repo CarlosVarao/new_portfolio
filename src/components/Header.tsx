@@ -7,21 +7,24 @@ import { ImExit } from "react-icons/im";
 export default function Header() {
   const [clickSidbar, setClickSidbar] = useState(false);
 
-  function clickSidbarExit(e: React.MouseEvent<HTMLDivElement>) {
-    if (e.target === e.currentTarget) {
-      setClickSidbar(false);
-    }
-    console.log(e);
-  }
+  // Função de exportar Currículo
+  function exportCurriculo() {
+    const link = document.createElement("a");
+    link.href = "/Curriculo_Carlos_Oliveira_Varao.docx"; // Caminho direto na raiz do public
+    link.download = "Curriculo_Carlos_Oliveira_Varao.docx"; // Mantém extensão do Word
 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
   return (
     <>
-      <div className="sticky top-2 sm:top-4 z-50 w-full">
-        <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] shadow-lg text-[#e2e8f0] font-primary px-3 py-3 ">
+      <div className="sticky top-2  z-50 w-full">
+        <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] shadow-lg text-[#e2e8f0] font-primary px-4 py-4 md:py-3">
           {/* Logo + Nome */}
-          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-            <BsFillTerminalFill className="text-[#22d3ee]" size={18} />
-            <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-[-0.015em]">
+          <div className="flex items-center gap-3">
+            <BsFillTerminalFill className="text-[#22d3ee]" size={22} />
+            <h2 className="text-md font-bold tracking-[-0.015em]">
               Carlos Varão
             </h2>
           </div>
@@ -55,7 +58,10 @@ export default function Header() {
               </a>
             </div>
 
-            <button className="flex items-center justify-center h-9 lg:h-10 px-3 lg:px-4 rounded-lg bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-[#22D3EE]/15 hover:-translate-y-0.5">
+            <button
+              className="flex items-center justify-center h-9 lg:h-10 px-3 lg:px-4 rounded-lg bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-[#22D3EE]/15 hover:-translate-y-0.5 cursor-pointer"
+              onClick={exportCurriculo}
+            >
               <span className="truncate text-[#22d3ee] text-[13px] lg:text-[14px]">
                 Baixar CV
               </span>
@@ -76,7 +82,11 @@ export default function Header() {
       {clickSidbar && (
         <div
           className="fixed inset-0 z-99 bg-[#0A0A1A] text-white flex items-center justify-center overflow-hidden"
-          onClick={clickSidbarExit}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setClickSidbar(false);
+            }
+          }}
         >
           <div
             className="w-full flex flex-col items-center justify-center gap-14"
