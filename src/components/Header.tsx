@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { BsFillTerminalFill } from "react-icons/bs";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { ImExit } from "react-icons/im";
-//import { IoIosCloseCircle } from "react-icons/io";
+import { IoExit } from "react-icons/io5";
 
 export default function Header() {
   const [clickSidbar, setClickSidbar] = useState(false);
@@ -10,8 +9,8 @@ export default function Header() {
   // Função de exportar Currículo
   function exportCurriculo() {
     const link = document.createElement("a");
-    link.href = "/Curriculo_Carlos_Oliveira_Varao.docx"; // Caminho direto na raiz do public
-    link.download = "Curriculo_Carlos_Oliveira_Varao.docx"; // Mantém extensão do Word
+    link.href = "/Curriculo_Carlos_Oliveira_Varao.docx";
+    link.download = "Curriculo_Carlos_Oliveira_Varao.docx";
 
     document.body.appendChild(link);
     link.click();
@@ -20,10 +19,10 @@ export default function Header() {
   return (
     <>
       <div className="sticky top-2  z-50 w-full">
-        <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] shadow-lg text-[#e2e8f0] font-primary px-4 py-4 md:py-3">
+        <div className="flex items-center justify-between md:rounded-xl md:bg-[#ffffff0d] md:backdrop-blur-md md:border md:border-[#ffffff1a] md:shadow-lg text-[#e2e8f0] font-primary px-4 py-4 md:py-3">
           {/* Logo + Nome */}
           <div className="flex items-center gap-3">
-            <BsFillTerminalFill className="text-[#22d3ee]" size={22} />
+            <BsFillTerminalFill className="text-[#22d3ee]" size={25} />
             <h2 className="text-md font-bold tracking-[-0.015em]">
               Carlos Varão
             </h2>
@@ -79,63 +78,75 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Menu SidBar */}
       {clickSidbar && (
-        <div
-          className="fixed inset-0 z-99 bg-[#0A0A1A] text-white flex items-center justify-center overflow-hidden"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              setClickSidbar(false);
-            }
-          }}
-        >
-          <div
-            className="w-full flex flex-col items-center justify-center gap-14"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ul className="flex flex-col gap-8 text-center w-full px-6">
-              <li className="w-full">
-                <a
-                  href="#sobre"
-                  className="flex items-center justify-center gap-4 rounded-lg py-4 text-3xl font-semibold text-white bg-primary/20 transition-colors hover:bg-primary/30"
-                >
-                  Home
-                </a>
-              </li>
+        <div className="fixed inset-0 z-99 h-dvh w-full flex-col text-white overflow-hidden backdrop-blur-sm font-primary">
+          <div className="relative h-full w-[75%] flex-col text-slate-800 bg-white pt-6 pl-6 pr-6 flex gap-15">
+            <div className="flex items-center justify-between">
+              <h2 className="text-[20px] font-bold text-slate-900">Menu</h2>
+              <IoExit
+                className="cursor-pointer text-red-700"
+                size={30}
+                onClick={() => setClickSidbar((prev) => !prev)}
+              />
+            </div>
 
-              <li className="w-full">
-                <a
-                  href="#projetos"
-                  className="flex items-center justify-center gap-4 rounded-lg py-4 text-3xl font-semibold text-slate-400 transition-colors hover:text-white hover:bg-white/5"
-                >
-                  Projetos
-                </a>
-              </li>
+            <div className="flex flex-1 flex-col font-secondary">
+              <ul className="flex w-full flex-col gap-2">
+                <li className="w-full p-2 bg-slate-200 rounded-lg">
+                  <a href="#projetos" className="text-[17px] text-slate-800">
+                    Sobre
+                  </a>
+                </li>
 
-              <li className="w-full">
-                <a
-                  href="#habilidades"
-                  className="flex items-center justify-center gap-4 rounded-lg py-4 text-3xl font-semibold text-slate-400 transition-colors hover:text-white hover:bg-white/5"
-                >
-                  Habilidades
-                </a>
-              </li>
+                <li className="w-full p-2 rounded-lg hover:bg-slate-200 focus:bg-slate-200">
+                  <a
+                    href="#habilidades"
+                    className="text-[17px] text-slate-600 hover:text-slate-800 focus:text-primary"
+                  >
+                    Projetos
+                  </a>
+                </li>
 
-              <li className="w-full">
-                <a
-                  href="#contato"
-                  className="flex items-center justify-center gap-4 rounded-lg py-4 text-3xl font-semibold text-slate-400 transition-colors hover:text-white hover:bg-white/5"
-                >
-                  Contato
-                </a>
-              </li>
-            </ul>
+                <li className="w-full p-2 rounded-lg hover:bg-slate-200 focus:bg-slate-200 ">
+                  <a
+                    href="#contato"
+                    className="text-[17px] text-slate-600 hover:text-slate-800 focus:text-primary"
+                  >
+                    Habilidades
+                  </a>
+                </li>
+              </ul>
 
-            <ImExit
-              className="cursor-pointer hover:scale-110 transition-transform duration-200"
-              size={30}
-              color="#ff4040"
-              onClick={() => setClickSidbar((prev) => !prev)}
-            />
+              <button
+                className="p-2 rounded-lg bg-[#ffffff0d] backdrop-blur-md border border-[#ffffff1a] font-bold  hover:bg-[red]/15 focus:bg-slate-200 cursor-pointer text-left text-red-700"
+                onClick={exportCurriculo}
+              >
+                Baixar CV
+              </button>
+            </div>
+
+            <div>
+              <div className="mb-6">
+                <h3 className="text-sm font-semibold text-slate-500 mb-3">
+                  Contatos
+                </h3>
+                <div className="flex flex-col gap-2 text-slate-700">
+                  <a
+                    className="text-sm hover:text-primary"
+                    href="mailto:carlosvarao.frontend@hotmail.com"
+                  >
+                    carlosvarao.frontend@hotmail.com
+                  </a>
+                  <a
+                    className="text-sm hover:text-primary"
+                    href="tel:+55639992576214"
+                  >
+                    +55 (63) 99925-6214
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
