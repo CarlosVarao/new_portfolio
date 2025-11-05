@@ -4,37 +4,25 @@ interface BackgroundProps {
 
 export default function Background({ children }: BackgroundProps) {
   return (
-    <div className="bg-[#0A0A1A] font-bold w-screen h-screen overflow-hidden">
-      <div className="fixed top-0 left-0 w-full h-full">
-        {/* Glow Top (somente em telas md+) */}
-        <div
-          className="
-          md:absolute md:top-[-20%] md:left-[-20%]
-          md:w-[500px] md:h-[500px]
-          md:bg-linear-to-br md:from-blue-500/30 md:to-purple-600/30
-          md:rounded-full
-          md:blur-3xl
-          md:animate-pulse
-        "
-        ></div>
-
-        {/* Conteúdo */}
-        <div className="relative flex flex-col items-center w-full pt-4 z-10">
-          <div className="w-full max-w-[1200px] px-4 sm:px-6">{children}</div>
+    <>
+      <div className="relative w-screen min-h-screen bg-[#0A0A1A]">
+        {/* Glow infinito */}
+        <div className="fixed md:inset-0 overflow-hidden">
+          {/* Glow Top */}
+          <div className="absolute top-[-20%] left-[-15%] w-[500px] h-[500px] bg-linear-to-br from-blue-500/30 to-purple-600/30 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+          {/* Glow Bottom */}
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-linear-to-tl from-cyan-400/30 to-indigo-500/30 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
         </div>
 
-        {/* Glow Bottom (somente em telas md+) */}
-        <div
-          className="
-          md:absolute md:bottom-[-10%] md:right-[-10%]
-          md:w-[600px] md:h-[600px]
-          md:bg-linear-to-tl md:from-cyan-400/30 md:to-indigo-500/30
-          md:rounded-full
-          md:blur-3xl
-          md:animate-pulse
-        "
-        ></div>
+        {/* Conteúdo centralizado */}
+        <div className="relative flex flex-col min-h-screen w-full">
+          <div className="flex flex-1 justify-center">
+            <div className="w-full max-w-5xl py-4 md:pt-6 px-4 flex flex-col gap-17">
+              {children}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -5,8 +5,13 @@
   --font-primary: "Inter", "sans-serif";
   --font-secondary: "Space Grotesk", "sans-serif";
   --text-color-primary: "#e2e8f0";
-  --color-cyan: "#22D3EE";
-  --color-purple: "#A78BFA";
+  --text-color-cyan: "#22D3EE";
+  --text-color-purple: "#A78BFA";
+  --text-color-cinza: "#94a3b8";
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 .glass-effect {
