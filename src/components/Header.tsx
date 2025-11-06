@@ -32,7 +32,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <BsFillTerminalFill className="text-[#22d3ee]" size={25} />
             <h2 className="text-md font-bold tracking-[-0.015em]">
-              Carlos Varão
+              Welcome to My Portfolio
             </h2>
           </div>
 
@@ -75,15 +75,13 @@ export default function Header() {
         className={`fixed inset-0 z-50 h-dvh w-full flex font-primary transition-opacity duration-300 ease-in-out backdrop-blur-sm ${
           clickSidbar ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (e.target === e.currentTarget) setClickSidbar(false);
-        }}
+        onClick={() => setClickSidbar(false)}
       >
         <div
           className={`relative h-full w-[75%] flex flex-col bg-white text-slate-900 p-6
       transition-transform duration-300 ease-in-out
       ${clickSidbar ? "translate-x-0" : "-translate-x-full"}`}
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-[20px] font-bold">Menus</h2>
