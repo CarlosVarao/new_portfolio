@@ -11,7 +11,6 @@ export default function ProjectHub() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
     setLoadingState(false);
   }, []);
 
@@ -70,13 +69,13 @@ export default function ProjectHub() {
 
             <div className="font-primary text-[#94a3b8] space-y-4 leading-relaxed">
               <p className="text-[#e2e8f0] font-semibold text-lg">
-                Título do projeto:{" "}
+                Título do projeto:
                 <span className="font-light">{state.title}</span>
               </p>
               <p className="text-[#e2e8f0] font-semibold text-base">
                 Detalhes do Projeto
               </p>
-              <p className="break-all">{state.description}</p>
+              <p className="break-all">{state.descriptionCompleto}</p>
             </div>
           </div>
         </CardSections>

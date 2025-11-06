@@ -5,9 +5,9 @@ import { IoExit } from "react-icons/io5";
 
 export default function Header() {
   const [clickSidbar, setClickSidbar] = useState(false);
-  const activeLink = "#Sobre";
 
   const arrayMenus = [
+    { label: "Home", link: "#" },
     { label: "Sobre", link: "#Sobre" },
     { label: "Projetos", link: "#Projetos" },
     { label: "Habilidades", link: "#Habilidades" },
@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       {/* HEADER */}
-      <div className=" top-2 z-50 w-full">
+      <div className="top-2 z-50 w-full">
         <div className="flex items-center justify-between font-primary text-[#e2e8f0] py-4 md:p-4 md:py-3 md:rounded-xl md:bg-[#ffffff0d] md:backdrop-blur-md md:border md:border-[#ffffff1a] md:shadow-lg">
           {/* Logo */}
           <div className="flex items-center gap-3">
@@ -60,11 +60,13 @@ export default function Header() {
           </nav>
 
           {/* Menu Mobile Button */}
-          <button className="md:hidden">
+          <button
+            className="md:hidden"
+            onClick={() => setClickSidbar((prev) => !prev)}
+          >
             <HiOutlineMenuAlt3
               size={26}
               className="text-[#22d3ee] cursor-pointer"
-              onClick={() => setClickSidbar((prev) => !prev)}
             />
           </button>
         </div>
@@ -78,9 +80,9 @@ export default function Header() {
         onClick={() => setClickSidbar(false)}
       >
         <div
-          className={`relative h-full w-[75%] flex flex-col bg-white text-slate-900 p-6
-      transition-transform duration-300 ease-in-out
-      ${clickSidbar ? "translate-x-0" : "-translate-x-full"}`}
+          className={`relative h-full w-[75%] flex flex-col bg-white text-slate-900 p-6 transition-transform duration-300 ease-in-out ${
+            clickSidbar ? "translate-x-0" : "-translate-x-full"
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-8">
@@ -94,21 +96,23 @@ export default function Header() {
 
           <nav className="flex flex-1 flex-col font-secondary gap-2 font-bold">
             <ul className="flex flex-col gap-1">
-              {arrayMenus.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.link}
-                    className={`block w-full p-2 rounded-lg transition-colors
-                ${
-                  activeLink === item.link
-                    ? "bg-slate-200 text-slate-900"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
-                }`}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {arrayMenus.map((item) => {
+                const activeLink = "Home";
+                return (
+                  <li key={item.label}>
+                    <a
+                      href={item.link}
+                      className={`block w-full p-2 rounded-lg transition-colors ${
+                        activeLink === item.label
+                          ? "bg-slate-200 text-slate-900"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <button
@@ -129,7 +133,7 @@ export default function Header() {
                 carlosvarao.frontend@hotmail.com
               </a>
               <a
-                className="text-sm hover:text-primary "
+                className="text-sm hover:text-primary"
                 href="tel:+55639992576214"
               >
                 +55 (63) 99925-6214

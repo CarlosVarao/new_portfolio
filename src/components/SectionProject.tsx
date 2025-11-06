@@ -4,47 +4,21 @@ import { FaRegFolder } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import SpinnerBackground from "./SpinnerBackground";
 import { useNavigate } from "react-router-dom";
+import dadosProjetos from "../data/projetos.json";
 
 interface Project {
-  rota: string;
-  title: string;
-  description: string;
-  image?: string;
+  rota?: string;
+  title?: string;
+  descriptionResumo?: string;
+  descriptionCompleto?: string;
+  tecnologias?: string[];
+  myVideo?: string;
+  imgProjeto?: string;
 }
 
 export default function SectionProject() {
   const [ativarSpinner, setAtivarSpinner] = useState(false);
   const navigate = useNavigate();
-
-  const arrayProjetos = [
-    {
-      rota: "/project-hub",
-      title: " Plataforma de Análise de Streaming",
-      description:
-        "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-      tecnologias: ["React", "TypeScript", "Node.js", "SQLite"],
-      myVideo: "https://www.youtube.com/embed/-nmZz21tzO4",
-      imgProjeto: "my_foto.jpg",
-    },
-    {
-      rota: "/project-hub",
-      title: " Plataforma de Análise de Streaming",
-      description:
-        "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-      tecnologias: ["React", "TypeScript", "Node.js", "SQLite"],
-      myVideo: "https://www.youtube.com/embed/-nmZz21tzO4",
-      imgProjeto: "my_foto.jpg",
-    },
-    {
-      rota: "/project-hub",
-      title: " Plataforma de Análise de Streaming",
-      description:
-        "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-      tecnologias: ["React", "TypeScript", "Node.js", "SQLite"],
-      myVideo: "https://www.youtube.com/embed/-nmZz21tzO4",
-      imgProjeto: "my_foto.jpg",
-    },
-  ];
 
   function openProject(project: Project) {
     setAtivarSpinner(true);
@@ -63,8 +37,8 @@ export default function SectionProject() {
       {ativarSpinner && <SpinnerBackground />}
 
       <CardSections numberSection="02." inforSection="Projetos">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {arrayProjetos.map((item, index) => (
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {dadosProjetos.map((item, index) => (
             <div
               key={index}
               className="flex gap-5 flex-col rounded-lg p-6 transition-all duration-300 ease-in-out glass-effect hover:-translate-y-[3px]"
@@ -84,7 +58,7 @@ export default function SectionProject() {
                   {item.title}
                 </p>
                 <p className="font-primary text-[#94a3b8] text-sm leading-relaxed break-all">
-                  {item.description}
+                  {item.descriptionResumo}
                 </p>
               </div>
 
