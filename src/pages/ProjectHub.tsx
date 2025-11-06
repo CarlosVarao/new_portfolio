@@ -33,7 +33,7 @@ export default function ProjectHub() {
             className="object-contain"
             onClick={(e) => e.stopPropagation()}
           />
-          <p className="mt-5 font-black font-secondary text-red-700">
+          <p className="mt-5 font-black font-secondary text-[#22D3EE]">
             Click fora para fechar!
           </p>
         </div>
@@ -67,15 +67,27 @@ export default function ProjectHub() {
               onClick={() => setOpenImgProjet(true)}
             />
 
-            <div className="font-primary text-[#94a3b8] space-y-4 leading-relaxed">
+            <div className="font-primary text-[#e2e8f0] space-y-4 leading-relaxed">
               <p className="text-[#e2e8f0] font-semibold text-lg">
                 Título do projeto:
-                <span className="font-light">{state.title}</span>
+                <span className="font-light ml-1">{state.title}</span>
               </p>
               <p className="text-[#e2e8f0] font-semibold text-base">
                 Detalhes do Projeto
               </p>
-              <p className="break-all">{state.descriptionCompleto}</p>
+              <p className="md:text-justify break-all whitespace-pre-line">
+                {state.descriptionCompleto}
+              </p>
+              <p className="text-[#e2e8f0] font-semibold text-base mt-10">
+                Link do Repositório:
+                <a
+                  target="_blank"
+                  href={state.hrefGithub}
+                  className="font-light ml-1 text-[#22D3EE] hover:underline transition-colors duration-200 break-all"
+                >
+                  {state.hrefGithub}
+                </a>
+              </p>
             </div>
           </div>
         </CardSections>

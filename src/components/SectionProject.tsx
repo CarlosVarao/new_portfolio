@@ -13,6 +13,7 @@ interface Project {
   descriptionCompleto?: string;
   tecnologias?: string[];
   myVideo?: string;
+  hrefGithub?: string;
   imgProjeto?: string;
 }
 
@@ -41,12 +42,12 @@ export default function SectionProject() {
           {dadosProjetos.map((item, index) => (
             <div
               key={index}
-              className="flex gap-5 flex-col rounded-lg p-6 transition-all duration-300 ease-in-out glass-effect hover:-translate-y-[3px]"
+              className="flex gap-5 flex-col rounded-lg p-6 transition-all duration-400 ease-in-out glass-effect hover:-translate-y-[3px]"
             >
               <div className="flex items-center justify-between">
                 <FaRegFolder color="#22D3EE" fontSize={28} />
                 <button
-                  className="cursor-pointer hover:text-[#22D3EE] text-[#94a3b8] transition-colors"
+                  className="cursor-pointer hover:text-[#22D3EE] text-[#94a3b8] transition-colors duration-200"
                   onClick={() => openProject(item)}
                 >
                   <MdOpenInNew fontSize={25} />
@@ -57,7 +58,7 @@ export default function SectionProject() {
                 <p className="font-secondary text-xl font-bold text-white">
                   {item.title}
                 </p>
-                <p className="font-primary text-[#94a3b8] text-sm leading-relaxed break-all">
+                <p className="font-primary text-[#94a3b8] text-sm leading-relaxed text-justify">
                   {item.descriptionResumo}
                 </p>
               </div>

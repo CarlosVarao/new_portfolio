@@ -6,7 +6,7 @@ export default function SectionAbout() {
     <>
       <CardSections numberSection="01." inforSection="Sobre min">
         <div className="flex gap-7 flex-col md:flex-row">
-          <div className="flex flex-col gap-4 text-base leading-relaxed font-primary text-[#94a3b8] break-all">
+          <div className="flex flex-col gap-4 text-base leading-relaxed font-primary text-[#94a3b8] text-justify">
             <p>
               Desde cedo, me interessei por tecnologia e programação, fascinado
               por como algumas linhas de código podem transformar ideias em

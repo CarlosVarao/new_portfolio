@@ -1,44 +1,17 @@
 [
   {
     "rota": "/project-hub",
-    "title": "Plataforma de Análise de Streaming",
-    "descriptionResumo": "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-    "descriptionCompleto": "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
+    "title": "localizador-cep-react",
+    "descriptionResumo": "Aplicação React que consulta a API ViaCEP para buscar informações de endereço a partir do CEP. Permite digitar um CEP, obter dados como UF, DDD, localidade, bairro e logradouro, e limpar o formulário. Interface responsiva com feedback visual para sucesso ou erro.",
+    "descriptionCompleto": "Aplicação React para buscar informações de endereço a partir do CEP utilizando a API pública ViaCEP.\n\nEste projeto permite que você digite um CEP no formato 00000-000 e, ao clicar em buscar, ele consulta a API ViaCEP para retornar dados como UF, DDD, localidade, bairro, logradouro e o próprio CEP. Ele também oferece feedback visual para erros ou sucesso na busca e um botão para limpar os dados e o campo de entrada. A interface é responsiva para dispositivos móveis.\n\nA aplicação foi desenvolvida utilizando React, com hooks como useState, Axios para requisições HTTP, e CSS puro para a estilização.\n\nPara rodar o projeto localmente, você precisa ter o Node.js e o npm instalados na sua máquina. Caso não tenha, acesse nodejs.org para instalar.\n\nDepois, siga os passos:\n\nClone este repositório na sua máquina, usando o comando no terminal: git clone https://github.com/seu-usuario/localizador-cep-react.git\n\nEntre na pasta do projeto: cd localizador-cep-react\n\nInstale as dependências necessárias com o npm ou yarn: npm install\n\nInicie o servidor de desenvolvimento para rodar o app localmente: npm run dev\n\nSe quiser acessar a aplicação via outros dispositivos da mesma rede, como seu celular ou tablet, é recomendado iniciar o servidor expondo o host da máquina local. Para isso, use:\n\nnpm run dev -- --host\n\nOu ajuste sua configuração para que o servidor fique acessível via IP local.\n\nAgora, abra seu navegador e acesse: http://localhost: sua porta\nOu, se estiver acessando de outro dispositivo na mesma rede, substitua localhost pelo IP da sua máquina.\n\nSe quiser entrar em contato comigo, use:\n\nEmail: carlosvarao.frontend@hotmail.com\nLinkedIn: https://www.linkedin.com/in/carlosvaraofrontend\nGitHub: https://github.com/CarlosVarao\nFeito com ❤️ usando React e muita dedicação!",
     "tecnologias": [
       "React",
       "TypeScript",
-      "Node.js",
-      "SQLite"
+      "Html",
+      ".Css"
     ],
-    "myVideo": "https://www.youtube.com/embed/-nmZz21tzO4",
-    "imgProjeto": "my_foto.jpg"
-  },
-  {
-    "rota": "/project-hub",
-    "title": "Plataforma de Análise de Streaming",
-    "descriptionResumo": "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-    "descriptionCompleto": "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-    "tecnologias": [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "SQLite"
-    ],
-    "myVideo": "https://www.youtube.com/embed/-nmZz21tzO4",
-    "imgProjeto": "my_foto.jpg"
-  },
-  {
-    "rota": "/project-hub",
-    "title": "Plataforma de Análise de Streaming",
-    "descriptionResumo": "Desenvolvimento de um pipeline de dados em tempo real para processar e analisar terabytes de dados de eventos de usuários, fornecendo insights para personalização de conteúdo.",
-    "descriptionCompleto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna. Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.",
-    "tecnologias": [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "SQLite"
-    ],
-    "myVideo": "https://www.youtube.com/embed/-nmZz21tzO4",
-    "imgProjeto": "my_foto.jpg"
+    "hrefGithub": "https://github.com/CarlosVarao/localizador-cep-react",
+    "myVideo": "https://www.youtube.com/-nmZz21tzO4",
+    "imgProjeto": "localizador-cep-react.png"
   }
 ]
