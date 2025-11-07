@@ -42,7 +42,7 @@ export default function SectionProject() {
           {dadosProjetos.map((item, index) => (
             <div
               key={index}
-              className="flex gap-5 flex-col rounded-lg p-6 transition-all duration-400 ease-in-out glass-effect hover:-translate-y-[3px]"
+              className="flex gap-5 flex-col rounded-lg p-6 transition-all duration-270 ease-in-out glass-effect hover:-translate-y-[3px]"
             >
               <div className="flex items-center justify-between">
                 <FaRegFolder color="#22D3EE" fontSize={28} />
