@@ -17,7 +17,7 @@ export default function SectionInicia() {
         {informacoesIniciais.descricao}
       </p>
 
-      <button className="cursor-pointer overflow-hidden rounded-lg py-2 px-5 glass-effect text-[#22D3EE] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#22D3EE]/10 transition-colors bg-[#ffffff0d]">
+      <button className="md:mt-5 cursor-pointer overflow-hidden rounded-lg py-3 px-3 md:py-3 md:px-5 text-[#e2e8f0] text-xs md:text-sm font-semibold md:font-bold hover:bg-[#7110df]/80 bg-[#7110df] transition-all duration-250 hover:-translate-y-[3px]">
         <span className="truncate">Entre em contato</span>
       </button>
     </div>
