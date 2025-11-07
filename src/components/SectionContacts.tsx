@@ -7,7 +7,7 @@ export default function SectionContacts() {
       <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
         Entre em Contato
       </h3>
-      <p className="text-[#94a3b8] mb-8 font-primary">
+      <p className="text-[#94a3b8] mb-8 font-primary text-justify md:text-center">
         Estou sempre aberto a novas oportunidades e colaborações. Se você tem um
         projeto em mente ou apenas quer dizer olá, minha caixa de entrada está
         sempre aberta. Farei o meu melhor para responder a você!
