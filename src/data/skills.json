@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Front-end",
+    "tecnologia": [
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "JavaScript",
+      "TypeScript",
+      "React"
+    ]
+  },
+  {
+    "title": "Back-end",
+    "tecnologia": [
+      "Node.js",
+      "Express",
+      "APIs REST",
+      "SQLite",
+      "SQL Server"
+    ]
+  },
+  {
+    "title": "Ferramentas",
+    "tecnologia": [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "npm"
+    ]
+  }
+]

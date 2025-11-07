@@ -1,52 +1,28 @@
+import CardSections from "../components/CardSections";
+import skills from "../data/skills.json";
+
 export default function SectionSkills() {
   return (
-    <section className="section-glass">
-      <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-4">
-        <span className="text-xl text-accent-cyan">03.</span> Habilidades
-        <span className="grow h-px bg-white/10 ml-4"></span>
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        <div className="glass-effect p-4 rounded-lg text-center glow-effect">
-          <h3 className="font-display text-lg font-bold text-white mb-2">
-            Linguagens
-          </h3>
-          <ul className="text-sm text-text-dark space-y-1">
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Scala</li>
-          </ul>
+    <>
+      <CardSections numberSection="03." inforSection="Habilidades">
+        <div className="font-secondary grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {skills.map((item) => (
+            <div className="text-center rounded-lg p-6 transition-all duration-400 ease-in-out glass-effect hover:-translate-y-[3px]">
+              <p className="text-xl font-bold text-white mb-3">{item.title}</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {item.tecnologia.map((item) => (
+                  <p
+                    key={item}
+                    className="font-primary text-sm text-[#94a3b8] hover:text-[#22D3EE] cursor-pointer "
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="glass-effect p-4 rounded-lg text-center glow-effect">
-          <h3 className="font-display text-lg font-bold text-white mb-2">
-            Big Data
-          </h3>
-          <ul className="text-sm text-text-dark space-y-1">
-            <li>Apache Spark</li>
-            <li>Hadoop</li>
-            <li>Kafka</li>
-          </ul>
-        </div>
-        <div className="glass-effect p-4 rounded-lg text-center glow-effect">
-          <h3 className="font-display text-lg font-bold text-white mb-2">
-            Cloud
-          </h3>
-          <ul className="text-sm text-text-dark space-y-1">
-            <li>AWS (S3, EMR, Redshift)</li>
-            <li>GCP (BigQuery, Dataproc)</li>
-            <li>Azure (Data Factory)</li>
-          </ul>
-        </div>
-        <div className="glass-effect p-4 rounded-lg text-center glow-effect">
-          <h3 className="font-display text-lg font-bold text-white mb-2">
-            Visualização
-          </h3>
-          <ul className="text-sm text-text-dark space-y-1">
-            <li>Tableau</li>
-            <li>Power BI</li>
-            <li>Looker</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      </CardSections>
+    </>
   );
 }
