@@ -1,5 +1,6 @@
 import Background from "../components/Background";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import CardSections from "../components/CardSections";
 import { useState, useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
@@ -91,6 +92,7 @@ export default function ProjectHub() {
             </div>
           </div>
         </CardSections>
+        <Footer />
       </Background>
     </>
   );

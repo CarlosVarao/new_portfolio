@@ -10,7 +10,7 @@ export default function CardSections({
   children,
 }: Datas) {
   return (
-    <section className="section-glass">
+    <div className="section-glass">
       <div className="flex flex-col gap-8 md:flex-row md:items-start">
         <div className="flex-1">
           <div className="font-secondary text-2xl md:text-3xl font-bold text-[#e2e8f0] mb-6 flex items-center gap-3">
@@ -21,6 +21,6 @@ export default function CardSections({
           {children}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

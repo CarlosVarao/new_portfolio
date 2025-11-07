@@ -4,6 +4,7 @@ import SectionInicial from "../components/SectionInicial";
 import SectionAbout from "../components/SectionAbout";
 import SectionProject from "../components/SectionProject";
 import SectionSkills from "../components/SectionSkills";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <SectionAbout />
         <SectionProject />
         <SectionSkills />
+        <Footer />
       </Background>
     </>
   );
