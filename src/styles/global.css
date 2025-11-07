@@ -17,15 +17,10 @@
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff0d;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glow-effect:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2), 0 0 20px rgba(139, 92, 246, 0.2);
 }
 
 .section-glass {

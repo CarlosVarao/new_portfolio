@@ -4,6 +4,7 @@ import SectionInicial from "../components/SectionInicial";
 import SectionAbout from "../components/SectionAbout";
 import SectionProject from "../components/SectionProject";
 import SectionSkills from "../components/SectionSkills";
+import SectionContacts from "../components/SectionContacts";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <SectionAbout />
         <SectionProject />
         <SectionSkills />
+        <SectionContacts />
         <Footer />
       </Background>
     </>

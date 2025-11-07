@@ -52,7 +52,7 @@ export default function Header() {
             </ul>
 
             <button
-              className="flex items-center justify-center h-9 lg:h-10 px-3 lg:px-4 rounded-lg border border-[#ffffff1a] bg-[#ffffff0d] backdrop-blur-md text-sm font-bold text-[#22d3ee] transition-all duration-300 hover:bg-[#22D3EE]/15 hover:-translate-y-0.5 cursor-pointer"
+              className="cursor-pointer overflow-hidden rounded-lg py-2 px-5 glass-effect text-[#22D3EE] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#22D3EE]/10 transition-colors bg-[#ffffff0d]"
               onClick={exportCurriculo}
             >
               Baixar CV
