@@ -1,24 +1,55 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
-// import { enviarEmail } from "../services/enviarEmail";
+import { enviarEmail } from "../services/enviarEmail";
+import SpinnerBtn from "./spinnerBtn";
 
 interface closeBtn {
   close: () => void;
 }
 
+const initialValues = {
+  remetente: "",
+  assunto: "",
+  messagem: "",
+};
+
 export default function ModalEmail({ close }: closeBtn) {
-  const [valueInputs, setValueInputs] = useState({
-    remetente: "",
-    assunto: "",
-    mensagem: "",
-  });
+  const [disabledBtn, setBisabledBtn] = useState(false);
+  const [valueInputs, setValueInputs] = useState(initialValues);
 
   async function btnEnviarEmail() {
+    if (
+      !valueInputs.assunto ||
+      !valueInputs.remetente ||
+      !valueInputs.messagem
+    ) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    if (valueInputs.remetente.length > 70) {
+      alert("E-mail muito longo! Máximo: 70 caracteres");
+      return;
+    }
+
+    if (valueInputs.assunto.length > 50) {
+      alert("Assunto muito longo! Máximo: 50 caracteres");
+      return;
+    }
+
+    if (valueInputs.messagem.length > 2000) {
+      alert("Mensagem muito longa! Máximo: 2000 caracteres");
+      return;
+    }
+
+    setBisabledBtn(true);
     try {
       const response = await enviarEmail(valueInputs);
-      console.log("E-mail enviado ✅", response);
+      setBisabledBtn(false);
+      setValueInputs(initialValues);
     } catch (error) {
       console.log("Falha ao enviar ❌", error);
+      setBisabledBtn(false);
     }
   }
 
@@ -39,7 +70,7 @@ export default function ModalEmail({ close }: closeBtn) {
             </button>
           </div>
 
-          <div className="flex flex-col gap-4  text-[#e2e8f0] text-sm">
+          <form className="flex flex-col gap-4  text-[#e2e8f0] text-sm">
             <div className="flex flex-col gap-6 sm:flex-row">
               <div className="flex flex-col min-w-40 flex-1">
                 <label className=" font-medium mb-2">Remetente</label>
@@ -47,6 +78,7 @@ export default function ModalEmail({ close }: closeBtn) {
                   className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 placeholder:text-white/40 focus:border-primary focus:outline-none "
                   placeholder="Digite seu E-mail..."
                   value={valueInputs.remetente}
+                  max={50}
                   onChange={(e) =>
                     setValueInputs({
                       ...valueInputs,
@@ -55,6 +87,7 @@ export default function ModalEmail({ close }: closeBtn) {
                   }
                 />
               </div>
+
               <div className="flex flex-col min-w-40 flex-1">
                 <label className=" font-medium mb-2">Destinatário</label>
                 <input
@@ -70,6 +103,7 @@ export default function ModalEmail({ close }: closeBtn) {
               <input
                 className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
                 placeholder="Ex: Dúvida sobre o Projeto X"
+                max={70}
                 value={valueInputs.assunto}
                 onChange={(e) =>
                   setValueInputs({ ...valueInputs, assunto: e.target.value })
@@ -84,13 +118,14 @@ export default function ModalEmail({ close }: closeBtn) {
               <textarea
                 className="form-input min-h-36 w-full resize-y rounded-lg border border-white/10 bg-white/5 p-4 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
                 placeholder="Digite sua mensagem aqui..."
-                value={valueInputs.mensagem}
+                maxLength={2000}
+                value={valueInputs.messagem}
                 onChange={(e) =>
-                  setValueInputs({ ...valueInputs, mensagem: e.target.value })
+                  setValueInputs({ ...valueInputs, messagem: e.target.value })
                 }
               />
             </div>
-          </div>
+          </form>
         </div>
 
         <div className="flex flex-wrap items-center justify-end gap-3 border-t border-white/10 px-8 py-4">
@@ -101,10 +136,15 @@ export default function ModalEmail({ close }: closeBtn) {
             Cancelar
           </button>
           <button
-            className="px-6 py-2.5 rounded-lg bg-primary text-sm font-bold cursor-pointer text-white  hover:bg-[#7110df]/80 bg-[#7110df] transition-all duration-250"
+            className={`px-6 w-[88px] py-2.5 rounded-lg bg-primary text-sm font-bold ${
+              disabledBtn ? "cursor-not-allowed" : "cursor-pointer"
+            }   text-white ${
+              disabledBtn ? "bg-[#7110df]/80" : "bg-[#7110df]"
+            } hover:bg-[#7110df]/80  transition-all duration-250 flex justify-center`}
             onClick={btnEnviarEmail}
+            disabled={disabledBtn}
           >
-            Enviar
+            {disabledBtn ? <SpinnerBtn width={20} height={20} /> : "Enviar"}
           </button>
         </div>
       </div>
