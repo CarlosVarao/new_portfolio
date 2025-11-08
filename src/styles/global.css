@@ -31,6 +31,22 @@
   border-radius: 1rem;
 }
 
+.borda-gradiente {
+  position: absolute;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #10b981, #0ea5e9, #6366f1);
+  padding: 2px;
+}
+
+.borda-gradiente::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #0f172a;
+  margin: 2px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
