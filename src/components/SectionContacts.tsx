@@ -6,7 +6,7 @@ export default function SectionContacts() {
   return (
     <>
       {ativarModal && <ModalEmail close={() => setAtivarModal(false)} />}
-      <div className="text-center max-w-2xl mx-auto section-glass font-secondary">
+      <div className="text-center max-w-2xl mx-auto section-glass p-[26px] md:p-10 font-secondary">
         <h2 className=" text-xl text-[#22D3EE] mb-2">
           04. Qual o próximo passo?
         </h2>

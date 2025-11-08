@@ -15,7 +15,7 @@ export default function SectionInicia() {
           {informacoesIniciais.nome}
         </h1>
 
-        <h2 className="text-2xl md:text-5xl  font-bold leading-tight tracking-[-0.033em] text-[#94a3b8]">
+        <h2 className="tracking-tighter bg-clip-text text-transparent bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-50%  to-emerald-500 text-2xl md:text-5xl  font-bold leading-tight  ">
           {informacoesIniciais.profissao}
         </h2>
 
@@ -24,8 +24,8 @@ export default function SectionInicia() {
         </p>
 
         <button
-          className="mt-4 cursor-pointer overflow-hidden rounded-lg py-3 px-3 md:py-3 md:px-5 text-[#e2e8f0] text-xs md:text-sm font-semibold md:font-bold hover:bg-[#7110df]/80 bg-[#7110df] transition-all duration-250 hover:-translate-y-[3px]"
           onClick={() => setOpenModal(true)}
+          className="mt-4 cursor-pointer rounded-lg py-3 px-5 text-sm font-semibold text-white bg-linear-to-r from-indigo-500/80 via-sky-500/80 to-emerald-500/80 transition-all duration-250 hover:-translate-y-[3px] hover:shadow-[0_0_10px_rgba(56,189,248,0.4)]"
         >
           Entre em contato
         </button>

@@ -25,13 +25,13 @@ export default function ProjectHub() {
     <>
       {openImgProjet && (
         <div
-          className="fixed inset-0 z-99 w-screen h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center"
+          className="fixed inset-0 z-99 md:w-screen md:h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center cursor-pointer"
           onClick={() => setOpenImgProjet(false)}
         >
           <img
             src={state.imgProjeto}
             alt="Imagem ampliada"
-            className="object-contain"
+            className="object-contain cursor-default "
             onClick={(e) => e.stopPropagation()}
           />
           <p className="mt-5 font-black font-secondary text-[#22D3EE]">
@@ -76,7 +76,7 @@ export default function ProjectHub() {
               <p className="text-[#e2e8f0] font-semibold text-base">
                 Detalhes do Projeto
               </p>
-              <p className="md:text-justify break-all whitespace-pre-line">
+              <p className="md:text-justify break-all md:break-normal whitespace-pre-line">
                 {state.descriptionCompleto}
               </p>
               <p className="text-[#e2e8f0] font-semibold text-base mt-10">

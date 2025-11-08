@@ -16,16 +16,32 @@
       "Node.js",
       "Express",
       "APIs REST",
+      "FastAPI",
+      "Python"
+    ]
+  },
+  {
+    "title": "Banco de Dados",
+    "tecnologia": [
+      "Datasphere",
+      "Databricks",
+      "ETL",
+      "Pipelines",
+      "Data Lakehouse",
       "SQL Server"
     ]
   },
   {
-    "title": "Ferramentas",
+    "title": "Ferramentas & Plataformas",
     "tecnologia": [
       "Git",
       "GitHub",
       "VS Code",
-      "npm"
+      "npm",
+      "Power Automate",
+      "Power Apps",
+      "Power BI",
+      "Microsoft 365"
     ]
   }
 ]
