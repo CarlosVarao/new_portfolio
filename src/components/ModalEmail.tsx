@@ -54,7 +54,7 @@ export default function ModalEmail({ close }: closeBtn) {
   }
 
   return (
-    <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm ">
+    <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm">
       <div
         className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out]"
         onClick={(e) => e.stopPropagation()}
