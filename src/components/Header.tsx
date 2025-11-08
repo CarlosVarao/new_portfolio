@@ -27,11 +27,11 @@ export default function Header() {
     <>
       {/* HEADER */}
       <div className="top-2 z-50 w-full">
-        <div className="flex items-center justify-between font-primary text-[#e2e8f0] py-4 md:p-4 md:py-3 md:rounded-xl md:bg-[#ffffff0d] md:backdrop-blur-md md:border md:border-[#ffffff1a] md:shadow-lg">
+        <div className="flex items-center justify-between font-primary text-[#e2e8f0] py-4 md:p-4 md:py-3 md:rounded-xl md:bg-[#ffffff0d] md:backdrop-blur-sm md:border md:border-[#ffffff1a] md:shadow-lg">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <BsFillTerminalFill className="text-[#22d3ee]" size={25} />
-            <h2 className="text-md font-bold tracking-[-0.015em]">
+            <BsFillTerminalFill className="text-[#22d3ee]" size={30} />
+            <h2 className="text-xl font-bold tracking-[-0.015em]">
               Welcome to My Portfolio
             </h2>
           </div>
@@ -52,7 +52,7 @@ export default function Header() {
             </ul>
 
             <button
-              className="cursor-pointer overflow-hidden rounded-lg py-2 px-5 glass-effect text-[#22D3EE] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#22D3EE]/10 transition-colors bg-[#ffffff0d]"
+              className="cursor-pointer overflow-hidden rounded-lg py-2 px-5 border border-[#ffffff1a] text-[#22D3EE] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#22D3EE]/10 transition-colors bg-[#ffffff0d]"
               onClick={exportCurriculo}
             >
               Baixar CV

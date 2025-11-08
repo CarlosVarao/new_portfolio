@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { enviarEmail } from "../services/enviarEmail";
-import SpinnerBtn from "./spinnerBtn";
+import SpinnerBtn from "./SpinnerBtn";
 
 interface closeBtn {
   close: () => void;
@@ -56,10 +56,10 @@ export default function ModalEmail({ close }: closeBtn) {
   return (
     <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm">
       <div
-        className="relative flex w-full max-w-2xl flex-col rounded-xl border border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm "
+        className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm "
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-8">
+        <div className="p-8 h-full flex flex-col justify-center">
           <div className="flex justify-between items-center mb-7">
             <h1 className="text-[#e2e8f0] text-2xl font-bold">Enviar E-mail</h1>
             <button
