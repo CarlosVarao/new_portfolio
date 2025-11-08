@@ -54,9 +54,9 @@ export default function ModalEmail({ close }: closeBtn) {
   }
 
   return (
-    <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm ">
       <div
-        className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm "
+        className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-8 h-full flex flex-col justify-center">
@@ -136,11 +136,11 @@ export default function ModalEmail({ close }: closeBtn) {
             Cancelar
           </button>
           <button
-            className={`px-6 w-[88px] py-2.5 rounded-lg bg-primary text-sm font-bold ${
-              disabledBtn ? "cursor-not-allowed" : "cursor-pointer"
-            }   text-white ${
-              disabledBtn ? "bg-[#7110df]/80" : "bg-[#7110df]"
-            } hover:bg-[#7110df]/80  transition-all duration-250 flex justify-center`}
+            className={`flex justify-center items-center w-[88px] px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-250 ${
+              disabledBtn
+                ? "cursor-not-allowed text-[#22D3EE]/60 border border-[#22D3EE]/30 bg-[#ffffff0d]/50"
+                : "cursor-pointer text-[#22D3EE] border border-[#22D3EE]/50 bg-[#ffffff0d] hover:bg-[#22D3EE]/10"
+            }`}
             onClick={btnEnviarEmail}
             disabled={disabledBtn}
           >

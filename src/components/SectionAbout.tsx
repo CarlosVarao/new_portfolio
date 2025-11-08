@@ -33,7 +33,7 @@ export default function SectionAbout() {
           <div className="mt-3 md:mt-11 flex justify-center font-secondary">
             <div className="relative w-64 h-64 md:w-72 md:h-72">
               {/* Borda levemente deslocada */}
-              <div className="absolute -inset-1 border-2 border-[#22D3EE] rounded-lg bottom-1 right-1"></div>
+              <div className="absolute -inset-1 borda-gradiente bottom-1 right-1"></div>
 
               {/* Imagem */}
               <img
@@ -43,7 +43,7 @@ export default function SectionAbout() {
               />
 
               {/* Idade sobreposta no canto inferior */}
-              <p className="absolute bottom-1 right-1 bg-[#22D3EE] text-white text-sm px-2 py-1 rounded-md z-20">
+              <p className="absolute bottom-1 right-1 bg-[#22D3EE] text-white text-sm px-2 py-1 rounded-md z-20  text-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                 26 anos
               </p>
             </div>

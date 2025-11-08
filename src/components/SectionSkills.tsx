@@ -9,7 +9,7 @@ export default function SectionSkills() {
           {skills.map((skills, index) => (
             <div
               key={index}
-              className="text-center h-[200px] flex flex-col gap-7 rounded-lg p-6 transition-all duration-300 ease-in-out glass-effect hover:-translate-y-[3px] flex-1 min-w-[280px]"
+              className="text-center h-min-[300px] flex flex-col gap-5 rounded-lg p-6 transition-all duration-300 ease-in-out glass-effect hover:-translate-y-[3px] flex-1 min-w-[250px]"
             >
               <p className="text-xl font-bold text-white ">{skills.title}</p>
 
