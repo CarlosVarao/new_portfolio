@@ -19,22 +19,22 @@ const initialValues = {
   messagem: "",
 };
 
+const configAlertToast = {
+  sucess: {
+    initial: "-right-20 top-8 md:top-10 md:-right-200",
+    start: "top-8 right-20 md:top-10 md:right-10 bg-emerald-500/90",
+  },
+  error: {
+    initial: "-right-24 top-8 md:top-10 md:-right-200",
+    start: "top-8 right-23 md:top-10 md:right-10 bg-red-500/90",
+  },
+};
+
 export default function ModalEmail({ close }: closeBtn) {
   const [alertToast, setAlertToast] = useState(IntinialAlertToast);
 
   const [disabledBtn, setBisabledBtn] = useState(false);
   const [valueInputs, setValueInputs] = useState(initialValues);
-
-  const configAlertToast = {
-    sucess: {
-      initial: "right-18 -top-10 md:top-10 md:-right-200",
-      start: "top-10 right-18 md:top-10 md:right-10 bg-emerald-500/90",
-    },
-    error: {
-      initial: "right-18 -top-10 md:top-10 md:-right-200",
-      start: "top-10 right-18 md:top-10 md:right-10 bg-red-500/90",
-    },
-  };
 
   async function btnEnviarEmail() {
     function configAlert(sucess: string, error: string) {
