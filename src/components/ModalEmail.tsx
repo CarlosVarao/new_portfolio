@@ -7,6 +7,12 @@ interface closeBtn {
   close: () => void;
 }
 
+const IntinialAlertToast = {
+  menssageSucess: "",
+  menssageError: "",
+  result: false,
+};
+
 const initialValues = {
   remetente: "",
   assunto: "",
@@ -14,10 +20,34 @@ const initialValues = {
 };
 
 export default function ModalEmail({ close }: closeBtn) {
+  const [alertToast, setAlertToast] = useState(IntinialAlertToast);
+
   const [disabledBtn, setBisabledBtn] = useState(false);
   const [valueInputs, setValueInputs] = useState(initialValues);
 
+  const configAlertToast = {
+    sucess: {
+      initial: "right-18 -top-10 md:top-10 md:-right-200",
+      start: "top-10 right-18 md:top-10 md:right-10 bg-emerald-500/90",
+    },
+    error: {
+      initial: "right-18 -top-10 md:top-10 md:-right-200",
+      start: "top-10 right-18 md:top-10 md:right-10 bg-red-500/90",
+    },
+  };
+
   async function btnEnviarEmail() {
+    function configAlert(sucess: string, error: string) {
+      setAlertToast({
+        menssageSucess: sucess,
+        menssageError: error,
+        result: true,
+      });
+      setTimeout(() => {
+        setAlertToast(IntinialAlertToast);
+      }, 3000);
+    }
+
     if (
       !valueInputs.assunto ||
       !valueInputs.remetente ||
@@ -44,110 +74,129 @@ export default function ModalEmail({ close }: closeBtn) {
 
     setBisabledBtn(true);
     try {
-      const response = await enviarEmail(valueInputs);
+      await enviarEmail(valueInputs);
+      configAlert("E-mail enviado com sucesso", "");
       setBisabledBtn(false);
       setValueInputs(initialValues);
     } catch (error) {
       console.log("Falha ao enviar ❌", error);
+      configAlert("", "Falha no envio do e-mail");
       setBisabledBtn(false);
     }
   }
 
   return (
-    <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div
-        className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="p-8 h-full flex flex-col justify-center">
-          <div className="flex justify-between items-center mb-7">
-            <h1 className="text-[#e2e8f0] text-2xl font-bold">Enviar E-mail</h1>
-            <button
-              className=" rounded-full p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
-              onClick={close}
-            >
-              <MdClose fontSize={22} />
-            </button>
-          </div>
+    <>
+      <div className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm ">
+        <div
+          className={`fixed ${
+            alertToast.menssageSucess
+              ? configAlertToast.sucess.start
+              : alertToast.menssageError
+              ? configAlertToast.error.start
+              : configAlertToast.error.initial
+          } px-4 py-2 rounded-lg text-white text-sm font-medium shadow-lg transition-all duration-300  backdrop-blur-md z-99`}
+        >
+          {alertToast.menssageSucess || alertToast.menssageError}
+        </div>
+        <div
+          className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="p-8 h-full flex flex-col justify-center">
+            <div className="flex justify-between items-center mb-7">
+              <h1 className="text-[#e2e8f0] text-2xl font-bold">
+                Enviar E-mail
+              </h1>
+              <button
+                className=" rounded-full p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
+                onClick={close}
+              >
+                <MdClose fontSize={22} />
+              </button>
+            </div>
 
-          <form className="flex flex-col gap-4  text-[#e2e8f0] text-sm">
-            <div className="flex flex-col gap-6 sm:flex-row">
+            <form className="flex flex-col gap-4  text-[#e2e8f0] text-sm">
+              <div className="flex flex-col gap-6 sm:flex-row">
+                <div className="flex flex-col min-w-40 flex-1">
+                  <label className=" font-medium mb-2">Remetente</label>
+                  <input
+                    className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 placeholder:text-white/40 focus:border-primary focus:outline-none "
+                    placeholder="Digite seu E-mail..."
+                    value={valueInputs.remetente}
+                    max={50}
+                    onChange={(e) =>
+                      setValueInputs({
+                        ...valueInputs,
+                        remetente: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <div className="flex flex-col min-w-40 flex-1">
+                  <label className=" font-medium mb-2">Destinatário</label>
+                  <input
+                    className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white/40 focus:border-primary focus:outline-none cursor-not-allowed"
+                    disabled
+                    value="carlosvarao.frontend@hotmail.com"
+                  />
+                </div>
+              </div>
+
               <div className="flex flex-col min-w-40 flex-1">
-                <label className=" font-medium mb-2">Remetente</label>
+                <label className="text-white/80  font-medium mb-2">
+                  Assunto
+                </label>
                 <input
-                  className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 placeholder:text-white/40 focus:border-primary focus:outline-none "
-                  placeholder="Digite seu E-mail..."
-                  value={valueInputs.remetente}
-                  max={50}
+                  className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
+                  placeholder="Ex: Dúvida sobre o Projeto X"
+                  max={70}
+                  value={valueInputs.assunto}
                   onChange={(e) =>
-                    setValueInputs({
-                      ...valueInputs,
-                      remetente: e.target.value,
-                    })
+                    setValueInputs({ ...valueInputs, assunto: e.target.value })
                   }
                 />
               </div>
 
               <div className="flex flex-col min-w-40 flex-1">
-                <label className=" font-medium mb-2">Destinatário</label>
-                <input
-                  className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white/40 focus:border-primary focus:outline-none cursor-not-allowed"
-                  disabled
-                  value="carlosvarao.frontend@hotmail.com"
+                <label className="text-white/80  font-medium mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  className="form-input min-h-36 w-full resize-y rounded-lg border border-white/10 bg-white/5 p-4 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
+                  placeholder="Digite sua mensagem aqui..."
+                  maxLength={2000}
+                  value={valueInputs.messagem}
+                  onChange={(e) =>
+                    setValueInputs({ ...valueInputs, messagem: e.target.value })
+                  }
                 />
               </div>
-            </div>
+            </form>
+          </div>
 
-            <div className="flex flex-col min-w-40 flex-1">
-              <label className="text-white/80  font-medium mb-2">Assunto</label>
-              <input
-                className="form-input w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
-                placeholder="Ex: Dúvida sobre o Projeto X"
-                max={70}
-                value={valueInputs.assunto}
-                onChange={(e) =>
-                  setValueInputs({ ...valueInputs, assunto: e.target.value })
-                }
-              />
-            </div>
-
-            <div className="flex flex-col min-w-40 flex-1">
-              <label className="text-white/80  font-medium mb-2">
-                Mensagem
-              </label>
-              <textarea
-                className="form-input min-h-36 w-full resize-y rounded-lg border border-white/10 bg-white/5 p-4 text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
-                placeholder="Digite sua mensagem aqui..."
-                maxLength={2000}
-                value={valueInputs.messagem}
-                onChange={(e) =>
-                  setValueInputs({ ...valueInputs, messagem: e.target.value })
-                }
-              />
-            </div>
-          </form>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-end gap-3 border-t border-white/10 px-8 py-4">
-          <button
-            className="rounded-lg hover:bg-white/10 px-6 py-2.5 text-sm cursor-pointer font-bold text-white/80 transition-all duration-250"
-            onClick={close}
-          >
-            Cancelar
-          </button>
-          <button
-            className={`flex justify-center items-center w-[88px] px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-250 ${
-              disabledBtn
-                ? "cursor-not-allowed text-[#22D3EE]/60 border border-[#22D3EE]/30 bg-[#ffffff0d]/50"
-                : "cursor-pointer text-[#22D3EE] border border-[#22D3EE]/50 bg-[#ffffff0d] hover:bg-[#22D3EE]/10"
-            }`}
-            onClick={btnEnviarEmail}
-            disabled={disabledBtn}
-          >
-            {disabledBtn ? <SpinnerBtn width={20} height={20} /> : "Enviar"}
-          </button>
+          <div className="flex flex-wrap items-center justify-end gap-3 border-t border-white/10 px-8 py-4">
+            <button
+              className="rounded-lg hover:bg-white/10 px-6 py-2.5 text-sm cursor-pointer font-bold text-white/80 transition-all duration-250"
+              onClick={close}
+            >
+              Cancelar
+            </button>
+            <button
+              className={`flex justify-center items-center w-[88px] px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-250 ${
+                disabledBtn
+                  ? "cursor-not-allowed text-[#22D3EE]/60 border border-[#22D3EE]/30 bg-[#ffffff0d]/50"
+                  : "cursor-pointer text-[#22D3EE] border border-[#22D3EE]/50 bg-[#ffffff0d] hover:bg-[#22D3EE]/10"
+              }`}
+              onClick={btnEnviarEmail}
+              disabled={disabledBtn}
+            >
+              {disabledBtn ? <SpinnerBtn width={20} height={20} /> : "Enviar"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
