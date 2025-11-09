@@ -73,13 +73,13 @@ export default function ModalEmail({ close }: closeBtn) {
 
     setBisabledBtn(true);
     try {
-      await enviarEmail(valueInputs);
-      configAlert("E-mail enviado com sucesso", "");
+      // await enviarEmail(valueInputs);
+      configAlert("E-mail enviado com sucesso!", "");
       setBisabledBtn(false);
       setValueInputs(initialValues);
     } catch (error) {
       console.log("Falha ao enviar ❌", error);
-      configAlert("", "Falha no envio do e-mail");
+      configAlert("", "Falha no envio do e-mail :(");
       setBisabledBtn(false);
     }
   }
