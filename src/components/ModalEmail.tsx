@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
-import { enviarEmail } from "../services/enviarEmail";
+import { enviarEmail } from "../services/servicesApi";
 import SpinnerBtn from "./SpinnerBtn";
 
 interface closeBtn {
