@@ -4,8 +4,8 @@ import Background from "../components/Background";
 
 export default function CadastroInfo() {
   const [liberarCadastro, setLiberarCadastro] = useState({
-    login: false,
-    cadastro: true,
+    login: true,
+    cadastro: false,
   });
 
   const [email, setEmail] = useState("");
