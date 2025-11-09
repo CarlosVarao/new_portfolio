@@ -32,9 +32,8 @@ const configAlertToast = {
 
 export default function ModalEmail({ close }: closeBtn) {
   const [alertToast, setAlertToast] = useState(IntinialAlertToast);
-
-  const [disabledBtn, setBisabledBtn] = useState(false);
   const [valueInputs, setValueInputs] = useState(initialValues);
+  const [disabledBtn, setBisabledBtn] = useState(false);
 
   async function btnEnviarEmail() {
     function configAlert(sucess: string, error: string) {
