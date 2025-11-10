@@ -27,21 +27,21 @@ export default function CadastroInfo() {
   };
 
   const dadosInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const dados = e.target.files?.[0] || null
-    setDadosJsonInput(dados)
-  }
+    const dados = e.target.files?.[0] || null;
+    setDadosJsonInput(dados);
+  };
 
   async function enviarDadosjson() {
     try {
-      enviarCadastroGit(dadosJsonInput)
+      enviarCadastroGit(dadosJsonInput);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   return (
     <Background>
-      {modal ? (
+      {!modal ? (
         <div className="flex h-full items-center justify-center px-4">
           <div className="w-full max-w-md section-glass px-8 py-13">
             <h2 className="text-center text-2xl md:text-3xl font-bold text-[#e2e8f0] mb-8 from-cyan-400 to-blue-500 bg-clip-text ">
@@ -92,8 +92,9 @@ export default function CadastroInfo() {
 
               {/* Mensagem de erro com opacidade dinâmica */}
               <p
-                className={`text-red-400 text-sm text-center mt-2 transition-opacity duration-500 ${errorMsg ? "opacity-100" : "opacity-0"
-                  }`}
+                className={`text-red-400 text-sm text-center mt-2 transition-opacity duration-500 ${
+                  errorMsg ? "opacity-100" : "opacity-0"
+                }`}
               >
                 Usuário ou senha inválidos!
               </p>
@@ -124,7 +125,8 @@ export default function CadastroInfo() {
                 />
               </div>
 
-              <button className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85"
+              <button
+                className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85"
                 onClick={enviarDadosjson}
               >
                 Enviar
