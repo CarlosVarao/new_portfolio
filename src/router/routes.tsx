@@ -10,7 +10,7 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project-hub" element={<ProjectHub />} />
-        <Route path="/cadastro-informacoes" element={<CadastroInfo />} />
+        <Route path="/admin" element={<CadastroInfo />} />
 
         {/* Rota para páginas não encontradas */}
         <Route path="*" element={<NotFound />} />

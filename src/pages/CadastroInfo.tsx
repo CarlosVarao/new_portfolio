@@ -6,7 +6,7 @@ import Background from "../components/Background";
 export default function CadastroInfo() {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -14,7 +14,7 @@ export default function CadastroInfo() {
     e.preventDefault();
     setErrorMsg("");
 
-    if (email === "cvarao" && senha === "123") {
+    if (login === "cvarao" && senha === "123") {
       setLoading(true);
       setTimeout(() => {
         setModal(true);
@@ -40,14 +40,14 @@ export default function CadastroInfo() {
                   htmlFor="input_email"
                   className="text-white/80 mb-2 font-medium"
                 >
-                  E-mail
+                  Login
                 </label>
                 <input
                   id="input_email"
                   type="text"
                   placeholder="Digite seu e-mail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
                   className="pl-3 focus:border-cyan-400 text-sm w-full rounded-lg border border-white/10 bg-white/5 p-2 text-[#e2e8f0] placeholder:text-white/40 focus:border-primary focus:outline-none"
                 />
               </div>
@@ -78,9 +78,8 @@ export default function CadastroInfo() {
 
               {/* Mensagem de erro com opacidade dinâmica */}
               <p
-                className={`text-red-400 text-sm text-center mt-2 transition-opacity duration-500 ${
-                  errorMsg ? "opacity-100" : "opacity-0"
-                }`}
+                className={`text-red-400 text-sm text-center mt-2 transition-opacity duration-500 ${errorMsg ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 Usuário ou senha inválidos!
               </p>
