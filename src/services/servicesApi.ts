@@ -53,8 +53,9 @@ export async function enviarCadastroGit(file: File | null) {
       });
 
       sha = getResponse.data.sha;
+      console.log("🔁 Arquivo existente, atualizando...");
     } catch {
-
+      console.log("🆕 Arquivo novo, criando...");
     }
 
     const putResponse = await axios.put(
