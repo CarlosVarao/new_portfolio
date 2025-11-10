@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SpinnerBtn from "../components/SpinnerBtn";
 import Background from "../components/Background";
-//import { enviarCadastroGit } from "../services/servicesApi";
+import { enviarCadastroGit } from "../services/servicesApi";
 
 export default function CadastroInfo() {
   const [loading, setLoading] = useState(false);
@@ -9,6 +9,7 @@ export default function CadastroInfo() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [dadosJsonInput, setDadosJsonInput] = useState<File | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,9 +26,22 @@ export default function CadastroInfo() {
     }
   };
 
+  const dadosInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const dados = e.target.files?.[0] || null
+    setDadosJsonInput(dados)
+  }
+
+  async function enviarDadosjson() {
+    try {
+      enviarCadastroGit(dadosJsonInput)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Background>
-      {!modal ? (
+      {modal ? (
         <div className="flex h-full items-center justify-center px-4">
           <div className="w-full max-w-md section-glass px-8 py-13">
             <h2 className="text-center text-2xl md:text-3xl font-bold text-[#e2e8f0] mb-8 from-cyan-400 to-blue-500 bg-clip-text ">
@@ -105,11 +119,14 @@ export default function CadastroInfo() {
                   id="file_input"
                   type="file"
                   accept=".json"
+                  onChange={dadosInput}
                   className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
                 />
               </div>
 
-              <button className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85">
+              <button className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85"
+                onClick={enviarDadosjson}
+              >
                 Enviar
               </button>
             </div>
