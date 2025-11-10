@@ -27,30 +27,41 @@ export async function enviarEmail(data: Data) {
   }
 }
 
+
 export async function enviarCadastroGit(file: File | null) {
   if (!file) throw new Error("Nenhum arquivo selecionado");
 
   const owner = "CarlosVarao";
   const repo = "new_portfolio";
   const path = `src/data/${file.name}`;
-  const token = "coloque o token"
+  const token = import.meta.env.VITE_TOKEN_GIT;
   const urlApi = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
+  // lê o conteúdo do arquivo
   const content = await file.text();
+
+  // converte corretamente pra Base64 (suporte UTF-8)
   const base64Content = btoa(unescape(encodeURIComponent(content)));
 
   try {
+    // 1️⃣ tenta buscar o arquivo pra ver se já existe
     let sha: string | undefined;
 
-    const getResponse = await axios.get(urlApi, {
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: "application/vnd.github.v3+json",
-      },
-    });
+    try {
+      const getResponse = await axios.get(urlApi, {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: "application/vnd.github.v3+json",
+        },
+      });
 
-    sha = getResponse.data.sha;
+      sha = getResponse.data.sha; // se achou o arquivo, guarda o sha
+      console.log("🔁 Arquivo existente, atualizando...");
+    } catch {
+      console.log("🆕 Arquivo novo, criando...");
+    }
 
+    // 2️⃣ cria ou atualiza o arquivo
     const putResponse = await axios.put(
       urlApi,
       {
@@ -58,7 +69,7 @@ export async function enviarCadastroGit(file: File | null) {
           ? `Atualizando ${file.name} via API`
           : `Adicionando ${file.name} via API`,
         content: base64Content,
-        sha
+        sha, // 👈 só é usado se o arquivo já existe
       },
       {
         headers: {
@@ -67,6 +78,8 @@ export async function enviarCadastroGit(file: File | null) {
         },
       }
     );
+
+    console.log("✅ Enviado com sucesso:", putResponse.data);
     return putResponse.data;
   } catch (error: any) {
     console.error("❌ Erro ao enviar:", error.response?.data || error.message);
