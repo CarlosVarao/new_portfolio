@@ -28,6 +28,7 @@ export async function enviarEmail(data: Data) {
 }
 
 
+
 export async function enviarCadastroGit(file: File | null) {
   if (!file) throw new Error("Nenhum arquivo selecionado");
 
@@ -42,13 +43,20 @@ export async function enviarCadastroGit(file: File | null) {
 
   try {
     let sha: string | undefined;
-    const getResponse = await axios.get(urlApi, {
-      headers: {
-        Authorization: token,
-        Accept: "application/vnd.github.v3+json",
-      },
-    });
-    sha = getResponse.data.sha;
+
+    try {
+      const getResponse = await axios.get(urlApi, {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: "application/vnd.github.v3+json",
+        },
+      });
+
+      sha = getResponse.data.sha;
+      console.log("🔁 Arquivo existente, atualizando...");
+    } catch {
+      console.log("🆕 Arquivo novo, criando...");
+    }
 
     const putResponse = await axios.put(
       urlApi,
@@ -61,15 +69,17 @@ export async function enviarCadastroGit(file: File | null) {
       },
       {
         headers: {
-          Authorization: token,
+          Authorization: `token ${token}`,
           Accept: "application/vnd.github.v3+json",
         },
       }
     );
 
+    console.log("✅ Enviado com sucesso:", putResponse.data);
     return putResponse.data;
   } catch (error: any) {
     console.error("❌ Erro ao enviar:", error.response?.data || error.message);
     throw error;
   }
 }
+
