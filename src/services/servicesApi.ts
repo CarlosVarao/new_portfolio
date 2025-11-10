@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import axios from "axios";
+//import axios from "axios";
 
 interface Data {
   remetente: string;
@@ -27,12 +27,12 @@ export async function enviarEmail(data: Data) {
   }
 }
 
-export async function enviarCadastroGit(data: Data) {
-  try {
-    const response = await 
-    return response;
-  } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
-    throw error;
-  }
-}
+// export async function enviarCadastroGit(data: Data) {
+//   try {
+//     const response = await
+//     return response;
+//   } catch (error) {
+//     console.error("Erro ao enviar e-mail:", error);
+//     throw error;
+//   }
+// }
