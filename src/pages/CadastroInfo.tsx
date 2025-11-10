@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SpinnerBtn from "../components/SpinnerBtn";
 import Background from "../components/Background";
+import { enviarCadastroGit } from "../services/servicesApi";
 
 export default function CadastroInfo() {
   const [loading, setLoading] = useState(false);
