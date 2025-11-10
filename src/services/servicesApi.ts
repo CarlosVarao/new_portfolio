@@ -47,15 +47,14 @@ export async function enviarCadastroGit(file: File | null) {
     try {
       const getResponse = await axios.get(urlApi, {
         headers: {
-          Authorization: `token ${token}`,
+          Authorization: token,
           Accept: "application/vnd.github.v3+json",
         },
       });
 
       sha = getResponse.data.sha;
-      console.log("🔁 Arquivo existente, atualizando...");
     } catch {
-      console.log("🆕 Arquivo novo, criando...");
+
     }
 
     const putResponse = await axios.put(
@@ -69,7 +68,7 @@ export async function enviarCadastroGit(file: File | null) {
       },
       {
         headers: {
-          Authorization: `token ${token}`,
+          Authorization: token,
           Accept: "application/vnd.github.v3+json",
         },
       }
