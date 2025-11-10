@@ -27,8 +27,6 @@ export async function enviarEmail(data: Data) {
   }
 }
 
-
-
 export async function enviarCadastroGit(file: File | null) {
   if (!file) throw new Error("Nenhum arquivo selecionado");
 
@@ -47,7 +45,7 @@ export async function enviarCadastroGit(file: File | null) {
     try {
       const getResponse = await axios.get(urlApi, {
         headers: {
-          Authorization: token,
+          Authorization: `${token}`,
           Accept: "application/vnd.github.v3+json",
         },
       });
@@ -69,7 +67,7 @@ export async function enviarCadastroGit(file: File | null) {
       },
       {
         headers: {
-          Authorization: token,
+          Authorization: `${token}`,
           Accept: "application/vnd.github.v3+json",
         },
       }
