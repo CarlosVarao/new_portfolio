@@ -9,6 +9,9 @@ export default function CadastroInfo() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [dadosJsonInput, setDadosJsonInput] = useState<File | null>(null);
+
+  console.log(dadosJsonInput);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +27,20 @@ export default function CadastroInfo() {
       setErrorMsg("Usuário ou senha inválidos!");
     }
   };
+
+  async function dadosJsonInputFiles(e: React.ChangeEvent<HTMLInputElement>) {
+    const data = e.target.files?.[0] || null;
+    setDadosJsonInput(data);
+  }
+
+  async function enviarDadosGit() {
+    try {
+      const response = await enviarCadastroGit(dadosJsonInput);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Background>
@@ -103,6 +120,7 @@ export default function CadastroInfo() {
                   Selecione um arquivo JSON
                 </label>
                 <input
+                  onChange={dadosJsonInputFiles}
                   id="file_input"
                   type="file"
                   accept=".json"
@@ -110,7 +128,10 @@ export default function CadastroInfo() {
                 />
               </div>
 
-              <button className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85">
+              <button
+                className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85"
+                onClick={enviarDadosGit}
+              >
                 Enviar
               </button>
             </div>
