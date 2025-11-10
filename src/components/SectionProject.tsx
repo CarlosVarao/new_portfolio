@@ -53,7 +53,7 @@ export default function SectionProject() {
                   <MdOpenInNew fontSize={25} />
                 </button>
               </div>
-              <div className="h-full flex flex-col justify-between">
+              <div className="h-full gap-7 flex flex-col justify-between">
                 <div className="flex flex-col gap-3">
                   <p className="font-secondary text-xl font-bold text-white">
                     {item.title}
@@ -63,8 +63,10 @@ export default function SectionProject() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-secondary text-[#22D3EE]">
-                  <span>{item.tecnologias.join(" • ")}</span>
+                <div className="flex flex-wrap gap-2 text-xs font-secondary text-[#22D3EE]">
+                  {item.tecnologias.map((itens) => (
+                    <p className="bg-[#101022]/60 px-2 py-1 rounded">{itens}</p>
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,141 +1,116 @@
 import { useState } from "react";
-import { enviarEmail } from "../services/servicesApi";
+import SpinnerBtn from "../components/SpinnerBtn";
 import Background from "../components/Background";
 
 export default function CadastroInfo() {
-  const [liberarCadastro, setLiberarCadastro] = useState({
-    login: true,
-    cadastro: false,
-  });
-
+  const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const [file, setFile] = useState<File | null>(null);
-
-  // Função de envio de login
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login com:", { email, senha });
-    // enviarEmail({ email, senha });
-  };
+    setErrorMsg("");
 
-  // Função de troca entre telas
-  const alternarTela = () => {
-    setLiberarCadastro((prev) => ({
-      login: !prev.login,
-      cadastro: !prev.cadastro,
-    }));
-  };
-
-  // Funções do upload
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+    if (email === "cvarao" && senha === "123") {
+      setLoading(true);
+      setTimeout(() => {
+        setModal(true);
+        setLoading(false);
+      }, 2000);
+    } else {
+      setErrorMsg("Usuário ou senha inválidos!");
     }
-  };
-
-  const handleUpload = async () => {
-    if (!file) {
-      alert("Selecione um arquivo antes de enviar!");
-      return;
-    }
-
-    console.log("Arquivo selecionado:", file.name);
-    alert(`Arquivo "${file.name}" enviado com sucesso!`);
   };
 
   return (
     <Background>
-      {/* === TELA DE LOGIN === */}
-      {liberarCadastro.login && (
-        <div className="flex h-screen w-full items-center justify-center px-4">
-          <div className="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-8">
-            <h2 className="text-center text-3xl font-bold text-white mb-8 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+      {!modal ? (
+        <div className="flex h-full items-center justify-center px-4">
+          <div className="w-full max-w-md section-glass px-8 py-13">
+            <h2 className="text-center text-2xl md:text-3xl font-bold text-[#e2e8f0] mb-8 from-cyan-400 to-blue-500 bg-clip-text ">
               Acesso ao Sistema
             </h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="flex flex-col">
-                <label className="text-white/80 mb-2 font-medium">E-mail</label>
+                <label
+                  htmlFor="input_email"
+                  className="text-white/80 mb-2 font-medium"
+                >
+                  E-mail
+                </label>
                 <input
-                  type="email"
+                  id="input_email"
+                  type="text"
                   placeholder="Digite seu e-mail"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition"
+                  className="pl-3 focus:border-cyan-400 text-sm w-full rounded-lg border border-white/10 bg-white/5 p-2 text-[#e2e8f0] placeholder:text-white/40 focus:border-primary focus:outline-none"
                 />
               </div>
 
               <div className="flex flex-col">
-                <label className="text-white/80 mb-2 font-medium">Senha</label>
+                <label
+                  htmlFor="input_senha"
+                  className="text-white/80 mb-2 font-medium"
+                >
+                  Senha
+                </label>
                 <input
+                  id="input_senha"
                   type="password"
                   placeholder="Digite sua senha"
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition"
+                  className="pl-3 focus:border-cyan-400 w-full text-sm rounded-lg border border-white/10 bg-white/5 p-2 text-[#e2e8f0] placeholder:text-white/40 focus:border-primary focus:outline-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-2 font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_10px_#06b6d4]"
+                className="flex h-10 justify-center items-center cursor-pointer mt-2 rounded-lg bg-linear-to-r from-cyan-500 to-blue-600 py-2 font-bold text-[#e2e8f0] transition-all hover:opacity-85"
               >
-                Entrar
+                {loading ? <SpinnerBtn width={20} height={20} /> : "Entrar"}
               </button>
-            </form>
 
-            <div className="text-center mt-5">
-              <button
-                onClick={alternarTela}
-                className="text-sm text-cyan-400 hover:text-cyan-300 transition"
+              {/* Mensagem de erro com opacidade dinâmica */}
+              <p
+                className={`text-red-400 text-sm text-center mt-2 transition-opacity duration-500 ${
+                  errorMsg ? "opacity-100" : "opacity-0"
+                }`}
               >
-                Criar conta / Ir para upload
-              </button>
-            </div>
+                Usuário ou senha inválidos!
+              </p>
+            </form>
           </div>
         </div>
-      )}
-
-      {/* === TELA DE UPLOAD === */}
-      {liberarCadastro.cadastro && (
+      ) : (
         <div className="flex h-screen w-full items-center justify-center px-4">
-          <div className="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-8">
-            <h2 className="text-center text-3xl font-bold text-white mb-8 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <div className="w-full max-w-md section-glass rounded-2xl shadow-2xl p-8">
+            <h2 className="text-center text-3xl font-bold text-white mb-8 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text ">
               Enviar Arquivo
             </h2>
 
             <div className="flex flex-col gap-6">
               <div className="flex flex-col">
-                <label className="text-white/80 mb-2 font-medium">
+                <label
+                  htmlFor="file_input"
+                  className="text-white/80 mb-4 font-medium"
+                >
                   Selecione um arquivo JSON
                 </label>
                 <input
+                  id="file_input"
                   type="file"
                   accept=".json"
-                  onChange={handleFileChange}
-                  className="file:mr-4 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-cyan-500 file:to-blue-600 file:px-4 file:py-2 file:text-white file:font-semibold hover:file:opacity-90 text-white/70"
+                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
                 />
-                {file && (
-                  <p className="mt-3 text-sm text-cyan-300 text-center truncate">
-                    Arquivo selecionado: {file.name}
-                  </p>
-                )}
               </div>
 
-              <button
-                onClick={handleUpload}
-                className="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-2 font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_10px_#06b6d4]"
-              >
+              <button className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85">
                 Enviar
-              </button>
-
-              <button
-                onClick={alternarTela}
-                className="text-sm text-cyan-400 hover:text-cyan-300 transition mt-2"
-              >
-                Voltar para login
               </button>
             </div>
           </div>

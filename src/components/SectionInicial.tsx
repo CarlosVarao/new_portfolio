@@ -25,7 +25,7 @@ export default function SectionInicia() {
 
         <button
           onClick={() => setOpenModal(true)}
-          className="mt-4 cursor-pointer rounded-lg py-3 px-5 text-sm font-semibold text-white text-shadow-[0_1px_3px_rgba(0,0,0,0.4)] bg-linear-to-r from-indigo-500  to-emerald-500/85 transition-all duration-250 hover:-translate-y-[3px] hover:shadow-[0_0_10px_rgba(56,189,248,0.4)]"
+          className="mt-4 cursor-pointer rounded-lg py-3 px-5 text-sm font-semibold text-white text-shadow-[0_1px_3px_rgba(0,0,0,0.4)] bg-linear-to-r from-cyan-500 to-blue-600 transition-all duration-250 hover:-translate-y-[3px] hover:shadow-[0_0_10px_rgba(56,189,248,0.4)]"
         >
           Entre em contato
         </button>
