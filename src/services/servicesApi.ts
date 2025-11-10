@@ -33,7 +33,7 @@ export async function enviarCadastroGit(file: File | null) {
   const owner = "CarlosVarao";
   const repo = "new_portfolio";
   const path = `src/data/${file.name}`;
-  const token = "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"
+  const token = "coloque o token"
   const urlApi = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
   const content = await file.text();
