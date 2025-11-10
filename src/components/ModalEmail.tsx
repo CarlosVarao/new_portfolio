@@ -83,22 +83,21 @@ export default function ModalEmail({ close }: { close: () => void }) {
   return (
     <>
       <div
-        className="fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm "
-        // onClick={}
+        className="cursor-pointer fixed inset-0 z-99 flex items-center justify-center bg-black/70 backdrop-blur-sm "
+        onClick={() => false}
       >
         <div
-          className={`fixed ${
-            alertToast.menssageSucess
-              ? configAlertToast.sucess.start
-              : alertToast.menssageError
+          className={`fixed ${alertToast.menssageSucess
+            ? configAlertToast.sucess.start
+            : alertToast.menssageError
               ? configAlertToast.error.start
               : configAlertToast.error.initial
-          } px-4 py-2 rounded-lg text-white text-sm font-medium shadow-lg transition-all duration-300  backdrop-blur-md z-99`}
+            } px-4 py-2 rounded-lg text-white text-sm font-medium shadow-lg transition-all duration-300  backdrop-blur-md z-99`}
         >
           {alertToast.menssageSucess || alertToast.menssageError}
         </div>
         <div
-          className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out]"
+          className="relative flex justify-between w-dvw md:w-full md:max-w-2xl h-dvh md:h-max  flex-col md:rounded-xl md:border md:border-white/10 bg-[#101622]/70 shadow-2xl backdrop-blur-sm animate-[fadeIn_0.25s_ease-in-out] cursor-default"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-8 h-full flex flex-col justify-center">
@@ -196,11 +195,10 @@ export default function ModalEmail({ close }: { close: () => void }) {
               Cancelar
             </button>
             <button
-              className={`flex justify-center items-center w-[88px] px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-250 ${
-                disabledBtn
-                  ? "cursor-not-allowed text-[#22D3EE]/60 border border-[#22D3EE]/30 bg-[#ffffff0d]/50"
-                  : "cursor-pointer text-[#22D3EE] border border-[#22D3EE]/50 bg-[#ffffff0d] hover:bg-[#22D3EE]/10"
-              }`}
+              className={`flex justify-center items-center w-[88px] px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-250 ${disabledBtn
+                ? "cursor-not-allowed text-[#22D3EE]/60 border border-[#22D3EE]/30 bg-[#ffffff0d]/50"
+                : "cursor-pointer text-[#22D3EE] border border-[#22D3EE]/50 bg-[#ffffff0d] hover:bg-[#22D3EE]/10"
+                }`}
               onClick={btnEnviarEmail}
               disabled={disabledBtn}
             >
