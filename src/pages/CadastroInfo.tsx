@@ -16,7 +16,10 @@ export default function CadastroInfo() {
     setErrorMsg("");
     setLoading(true);
 
-    if (login === "cvarao" && senha === "123") {
+    if (
+      login === import.meta.env.VITE_USER_LOGIN &&
+      senha === import.meta.env.VITE_USER_SENHA
+    ) {
       setTimeout(() => {
         setModal(true);
         setLoading(false);
