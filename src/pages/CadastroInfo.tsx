@@ -14,15 +14,18 @@ export default function CadastroInfo() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
+    setLoading(true);
 
     if (login === "cvarao" && senha === "123") {
-      setLoading(true);
       setTimeout(() => {
         setModal(true);
         setLoading(false);
       }, 2000);
     } else {
-      setErrorMsg("Usuário ou senha inválidos!");
+      setTimeout(() => {
+        setErrorMsg("Usuário ou senha inválidos!");
+        setLoading(false);
+      }, 2000);
     }
   };
 

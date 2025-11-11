@@ -27,7 +27,6 @@ export async function enviarEmail(data: Data) {
   }
 }
 
-
 export async function enviarCadastroGit(file: File | null) {
   if (!file) throw new Error("Nenhum arquivo selecionado");
 
