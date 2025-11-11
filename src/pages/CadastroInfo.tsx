@@ -129,7 +129,7 @@ export default function CadastroInfo() {
             </h2>
 
             <div className="flex flex-col gap-6">
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-3">
                 <label
                   htmlFor="file_input"
                   className="text-white/80 mb-4 font-medium"
