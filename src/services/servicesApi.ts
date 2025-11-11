@@ -27,56 +27,96 @@ export async function enviarEmail(data: Data) {
   }
 }
 
-export async function enviarCadastroGit(file: File | null) {
-  if (!file) throw new Error("Nenhum arquivo selecionado");
+interface DadosInputs {
+  fileImg: File | null;
+  fileJson: File | null;
+}
 
+export async function enviarCadastroGit({ fileImg, fileJson }: DadosInputs) {
   const owner = "CarlosVarao";
   const repo = "new_portfolio";
-  const path = `src/data/${file.name}`;
   const token = import.meta.env.VITE_TOKEN_GIT;
-  const urlApi = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-  const content = await file.text();
-  const base64Content = btoa(unescape(encodeURIComponent(content)));
+  if (!fileJson && !fileImg) {
+    console.error("Nenhum arquivo foi enviado.");
+    return;
+  }
 
-  try {
-    let sha: string | undefined;
+  // ====== UPLOAD DO JSON ======
+  if (fileJson) {
+    const pathJson = `src/data/${fileJson.name}`;
+    const urlApiJson = `https://api.github.com/repos/${owner}/${repo}/contents/${pathJson}`;
 
-    try {
-      const getResponse = await axios.get(urlApi, {
-        headers: {
-          Authorization: `token ${token}`,
-          Accept: "application/vnd.github.v3+json",
-        },
-      });
+    const content = await fileJson.text();
+    const base64Content = btoa(unescape(encodeURIComponent(content)));
 
-      sha = getResponse.data.sha;
-      console.log("🔁 Arquivo existente, atualizando...");
-    } catch {
-      console.log("🆕 Arquivo novo, criando...");
-    }
+    await enviarOuAtualizarArquivo(
+      urlApiJson,
+      base64Content,
+      fileJson.name,
+      token
+    );
+  }
 
-    const putResponse = await axios.put(
-      urlApi,
-      {
-        message: sha
-          ? `Atualizando ${file.name} via API`
-          : `Adicionando ${file.name} via API`,
-        content: base64Content,
-        sha,
-      },
-      {
-        headers: {
-          Authorization: `token ${token}`,
-          Accept: "application/vnd.github.v3+json",
-        },
-      }
+  // ====== UPLOAD DA IMAGEM ======
+  if (fileImg) {
+    const pathImg = `public/${fileImg.name}`;
+    const urlApiImg = `https://api.github.com/repos/${owner}/${repo}/contents/${pathImg}`;
+
+    const buffer = await fileImg.arrayBuffer();
+    const base64Img = btoa(
+      new Uint8Array(buffer).reduce(
+        (data, byte) => data + String.fromCharCode(byte),
+        ""
+      )
     );
 
-    console.log("✅ Enviado com sucesso:", putResponse.data);
-    return putResponse.data;
-  } catch (error: any) {
-    console.error("❌ Erro ao enviar:", error.response?.data || error.message);
-    throw error;
+    await enviarOuAtualizarArquivo(urlApiImg, base64Img, fileImg.name, token);
   }
+
+  console.log("✅ Upload concluído com sucesso!");
+}
+
+// ====== FUNÇÃO AUXILIAR ======
+async function enviarOuAtualizarArquivo(
+  url: string,
+  base64Content: string,
+  fileName: string,
+  token: string
+) {
+  let sha: string | undefined;
+
+  try {
+    // Verifica se o arquivo já existe
+    const getResponse = await axios.get(url, {
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: "application/vnd.github.v3+json",
+      },
+    });
+    sha = getResponse.data.sha;
+    console.log(`🔁 ${fileName} já existe. Atualizando...`);
+  } catch {
+    console.log(`🆕 ${fileName} não existe. Criando novo...`);
+  }
+
+  const putResponse = await axios.put(
+    url,
+    {
+      message: sha
+        ? `Atualizando ${fileName} via API`
+        : `Adicionando ${fileName} via API`,
+      content: base64Content,
+      sha,
+    },
+    {
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: "application/vnd.github.v3+json",
+      },
+    }
+  );
+
+  console.log(`✅ ${fileName} enviado com sucesso.`);
+  return putResponse.data;
 }

@@ -9,9 +9,15 @@ export default function CadastroInfo() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [dadosJsonInput, setDadosJsonInput] = useState<File | null>(null);
+  const [valueDadosImgInput, setValueDadosImgInput] = useState<File | null>(
+    null
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [valueDadosJsonInput, setValueDadosJsonInput] = useState<File | null>(
+    null
+  );
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg("");
     setLoading(true);
@@ -30,16 +36,24 @@ export default function CadastroInfo() {
         setLoading(false);
       }, 2000);
     }
-  };
+  }
 
-  const dadosInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function dadosInputImg(e: React.ChangeEvent<HTMLInputElement>) {
     const dados = e.target.files?.[0] || null;
-    setDadosJsonInput(dados);
-  };
+    setValueDadosImgInput(dados);
+  }
 
-  async function enviarDadosjson() {
+  function dadosInputJson(e: React.ChangeEvent<HTMLInputElement>) {
+    const dados = e.target.files?.[0] || null;
+    setValueDadosJsonInput(dados);
+  }
+
+  async function enviarDados() {
     try {
-      enviarCadastroGit(dadosJsonInput);
+      enviarCadastroGit({
+        fileImg: valueDadosImgInput,
+        fileJson: valueDadosJsonInput,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -120,20 +134,27 @@ export default function CadastroInfo() {
                   htmlFor="file_input"
                   className="text-white/80 mb-4 font-medium"
                 >
-                  Selecione um arquivo JSON
+                  Selecione os arquivos para envio!
                 </label>
                 <input
                   id="file_input"
                   type="file"
                   accept=".json"
-                  onChange={dadosInput}
+                  onChange={dadosInputImg}
+                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
+                />
+                <input
+                  id="file_input"
+                  type="file"
+                  accept=".json"
+                  onChange={dadosInputJson}
                   className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
                 />
               </div>
 
               <button
                 className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 text-sm py-2 font-bold text-white transition-all hover:opacity-85"
-                onClick={enviarDadosjson}
+                onClick={enviarDados}
               >
                 Enviar
               </button>
