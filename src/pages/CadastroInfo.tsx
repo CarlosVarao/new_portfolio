@@ -62,7 +62,7 @@ export default function CadastroInfo() {
   return (
     <Background>
       {!modal ? (
-        <div className="flex h-full items-center justify-center px-4">
+        <div className="flex h-dvh items-center justify-center px-4">
           <div className="w-full max-w-md section-glass px-8 py-13">
             <h2 className="text-center text-2xl md:text-3xl font-bold text-[#e2e8f0] mb-8 from-cyan-400 to-blue-500 bg-clip-text ">
               Acesso ao Sistema
@@ -122,7 +122,7 @@ export default function CadastroInfo() {
           </div>
         </div>
       ) : (
-        <div className="flex h-screen w-full items-center justify-center px-4">
+        <div className="flex h-dvh w-full items-center justify-center px-4">
           <div className="w-full max-w-md section-glass rounded-2xl shadow-2xl p-8">
             <h2 className="text-center text-3xl font-bold text-white mb-8 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text ">
               Enviar Arquivo
