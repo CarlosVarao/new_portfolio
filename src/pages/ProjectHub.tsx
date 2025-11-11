@@ -25,13 +25,13 @@ export default function ProjectHub() {
     <>
       {openImgProjet && (
         <div
-          className="fixed inset-0 z-99 md:w-screen md:h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center cursor-pointer"
+          className="fixed inset-0 z-99 md:w-screen md:h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center cursor-pointer "
           onClick={() => setOpenImgProjet(false)}
         >
           <img
             src={state.imgProjeto}
             alt="Imagem ampliada"
-            className="object-contain cursor-default "
+            className="max-w-[900px] max-h-[565px] object-contain cursor-default fadeIn animate-[fadeIn_0.25s_ease-in-out]"
             onClick={(e) => e.stopPropagation()}
           />
           <p className="mt-5 font-black font-secondary text-[#22D3EE]">
