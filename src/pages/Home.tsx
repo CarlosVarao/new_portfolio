@@ -6,6 +6,7 @@ import SectionProject from "../components/SectionProject";
 import SectionSkills from "../components/SectionSkills";
 import SectionContacts from "../components/SectionContacts";
 import Footer from "../components/Footer";
+import LofiPlayer from "../components/LofiPlayer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Background header={
         <>    <Header /></>
       }>
+        <LofiPlayer />
         <SectionInicial />
         <SectionAbout />
         <SectionProject />
