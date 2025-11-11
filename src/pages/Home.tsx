@@ -10,8 +10,9 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
-      <Background>
-        <Header />
+      <Background header={
+        <>    <Header /></>
+      }>
         <SectionInicial />
         <SectionAbout />
         <SectionProject />

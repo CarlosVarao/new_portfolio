@@ -1,8 +1,9 @@
 interface BackgroundProps {
+  header?: React.ReactNode;
   children?: React.ReactNode;
 }
 
-export default function Background({ children }: BackgroundProps) {
+export default function Background({ header, children }: BackgroundProps) {
   return (
     <>
       <div className="relative w-screen min-h-screen bg-[#0A0A1A]">
@@ -17,8 +18,9 @@ export default function Background({ children }: BackgroundProps) {
         {/* Conteúdo centralizado */}
         <div className="relative flex flex-col min-h-screen w-full">
           <div className="flex flex-1 justify-center">
-            <div className="w-full max-w-5xl py-4 md:pt-6 px-4 flex flex-col gap-17">
-              {children}
+            <div className="w-full max-w-5xl py-4 px-4 flex flex-col gap-17 md:gap-12">
+              {header}
+              <div className="w-full flex flex-col gap-25">{children}</div>
             </div>
           </div>
         </div>
