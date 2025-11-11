@@ -6,15 +6,13 @@ import SectionProject from "../components/SectionProject";
 import SectionSkills from "../components/SectionSkills";
 import SectionContacts from "../components/SectionContacts";
 import Footer from "../components/Footer";
-import LofiPlayer from "../components/LofiPlayer";
+import MusicPlayer from "../components/MusicPlayer";
 
 export default function Home() {
   return (
     <>
-      <Background header={
-        <>    <Header /></>
-      }>
-        <LofiPlayer />
+      <Background header={<Header />}>
+        <MusicPlayer />
         <SectionInicial />
         <SectionAbout />
         <SectionProject />
