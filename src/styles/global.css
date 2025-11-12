@@ -56,3 +56,28 @@
     transform: scale(1);
   }
 }
+
+@layer components {
+  .slider {
+    @apply appearance-none w-full h-2 bg-gray-200 rounded-full outline-none transition-opacity duration-200;
+  }
+
+  .slider:hover {
+    @apply opacity-100;
+  }
+
+  /* Chrome, Safari, Edge */
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-gray-900 rounded-full cursor-pointer;
+  }
+
+  /* Firefox */
+  .slider::-moz-range-thumb {
+    @apply w-4 h-4 bg-gray-900 rounded-full cursor-pointer;
+  }
+
+  /* Trilho Firefox */
+  .slider::-moz-range-track {
+    @apply bg-gray-200 rounded-full;
+  }
+}
