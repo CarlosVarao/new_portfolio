@@ -34,7 +34,7 @@ export default function ProjectHub() {
             className="max-w-[900px] max-h-[565px] object-contain cursor-default fadeIn animate-[fadeIn_0.25s_ease-in-out]"
             onClick={(e) => e.stopPropagation()}
           />
-          <p className="mt-5 font-black font-secondary text-[#22D3EE]">
+          <p className="mt-5 font-black font-secondary text-[#22D3EE] fadeIn animate-[fadeIn_0.25s_ease-in-out]">
             Click fora para fechar!
           </p>
         </div>
