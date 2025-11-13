@@ -25,7 +25,7 @@ export default function ProjectHub() {
     <>
       {openImgProjet && (
         <div
-          className="fixed inset-0 z-99 md:w-screen md:h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center cursor-pointer "
+          className="fixed inset-0 z-99 md:w-screen md:h-screen bg-black/80 backdrop-blur-lg flex items-center flex-col justify-center cursor-pointer"
           onClick={() => setOpenImgProjet(false)}
         >
           <img
