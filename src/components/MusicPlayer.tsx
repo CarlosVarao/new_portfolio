@@ -70,7 +70,7 @@ export default function MusicPlayer() {
             }}
           />
 
-          <div className="flex-1 min-w-0 pr-2">
+          <div className="flex-1 min-w-0 pr-1">
             <p className="text-sm font-bold text-white truncate">
               {currentTrack.title}
             </p>
@@ -88,7 +88,7 @@ export default function MusicPlayer() {
 
           <button
             onClick={togglePlayPause}
-            className="bg-sky-500 hover:bg-sky-600 text-white p-2 rounded-full shadow-lg transition-all duration-300 active:scale-90 w-10 h-10 flex items-center justify-center shrink-0 cursor-pointer"
+            className="bg-[#00a9e8] hover:bg-sky-600 text-white p-2 rounded-full shadow-lg transition-all duration-300 active:scale-90 w-10 h-10 flex items-center justify-center shrink-0 cursor-pointer"
           >
             {isPlaying ? (
               <FaPause size={20} fill="white" />
