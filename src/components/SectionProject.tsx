@@ -64,8 +64,13 @@ export default function SectionProject() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 text-xs font-secondary text-[#22D3EE]">
-                  {item.tecnologias.map((itens) => (
-                    <p className="bg-[#101022]/60 px-2 py-1 rounded">{itens}</p>
+                  {item.tecnologias.map((itens, index) => (
+                    <p
+                      key={index}
+                      className="bg-[#101022]/60 px-2 py-1 rounded"
+                    >
+                      {itens}
+                    </p>
                   ))}
                 </div>
               </div>
