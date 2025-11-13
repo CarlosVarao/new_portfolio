@@ -3,7 +3,7 @@ import { IoPlay } from "react-icons/io5";
 import { FaPause } from "react-icons/fa6";
 
 const MOCK_TRACK = {
-  title: "Apresentação",
+  title: "Click no play",
   artist: "Carlos Varão",
   albumArtUrl: "capa_album.jpg",
   audioUrl: "lofi.mp3",
@@ -79,7 +79,7 @@ export default function MusicPlayer() {
             <p className="text-sm font-bold text-white truncate">
               {currentTrack.title}
             </p>
-            <p className="text-xs text-gray-400 truncate">
+            <p className="text-xs text-gray-400 truncate text-wrap">
               {currentTrack.artist}
             </p>
 
