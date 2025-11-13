@@ -60,8 +60,9 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
   height: 10px;
+  transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-track {
@@ -69,10 +70,17 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00ba94;
+  background-color: oklch(68.5% 0.169 237.323);
   border: none;
   border-radius: 0;
 }
+
+::-webkit-scrollbar-thumb:hover {
+   background-color: oklch(55% 0.169 237.323);
+  cursor: pointer;
+}
+
+
 
 @layer components {
   .slider {

@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { IoPlay } from "react-icons/io5";
 import { FaPause } from "react-icons/fa6";
 
@@ -10,11 +10,16 @@ const MOCK_TRACK = {
 };
 
 export default function MusicPlayer() {
+  const [openPlaying, setOpenPlaying] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTrack] = useState(MOCK_TRACK);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    setOpenPlaying(true)
+  }, [])
 
   const togglePlayPause = useCallback(() => {
     const audio = audioRef.current;
@@ -58,8 +63,8 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className="fixed z-10 right-3 bottom-3 xl:left-7 lg:bottom-7 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-md shadow-2xl transition-all duration-300">
-        <div className="flex items-center space-x-3">
+      <div className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-md  transition-all duration-300 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"}`}>
+        <div className="flex items-center space-x-3 ">
           <img
             src={currentTrack.albumArtUrl}
             alt="Arte do Álbum"
