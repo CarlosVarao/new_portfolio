@@ -1,4 +1,5 @@
 import photo from "/my_foto.jpg";
+import { sobreMy } from "../data/informacoesIniciais.json";
 import CardSections from "./CardSections";
 
 export default function SectionAbout() {
@@ -7,27 +8,9 @@ export default function SectionAbout() {
       <CardSections numberSection="01." inforSection="Sobre Mim">
         <div className="flex gap-7 flex-col md:flex-row">
           <div className="flex flex-col gap-4 text-base leading-relaxed font-primary text-[#94a3b8] text-justify">
-            <p>
-              Desde cedo, me interessei por tecnologia e programação, fascinado
-              por como algumas linhas de código podem transformar ideias em
-              realidade. Comecei minha jornada explorando HTML, CSS e
-              JavaScript, aprendendo na prática e construindo pequenos projetos
-              para testar minhas habilidades.
-            </p>
-            <p>
-              Com o tempo, fui aprofundando meus conhecimentos em
-              desenvolvimento web, migrando para React, TypeScript e criando
-              projetos mais complexos, como sistemas de gerenciamento e
-              dashboards interativos. Cada desafio me ensinou a importância de
-              pensar na arquitetura, na performance e na experiência do usuário.
-            </p>
-            <p>
-              Hoje, trabalho focado em criar soluções modernas, escaláveis e
-              elegantes, sempre buscando aprender novas tecnologias e melhorar
-              minhas habilidades. Fora do trabalho, gosto de explorar
-              frameworks, contribuir com projetos pessoais e estudar novas
-              tendências, mantendo minha paixão por desenvolvimento sempre viva.
-            </p>
+            <p>{sobreMy.p1}</p>
+            <p>{sobreMy.p2}</p>
+            <p>{sobreMy.p3}</p>
           </div>
 
           <div className="mt-3 md:mt-11 flex justify-center font-secondary">

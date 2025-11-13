@@ -1,5 +1,10 @@
 {
   "nome": "Carlos Varão",
   "profissao": "Desenvolvedor Front-End focado em interfaces modernas e performáticas.",
-  "descricao": "Sou um Desenvolvedor Front-End que transforma necessidades reais em interfaces rápidas, acessíveis e profissionais. Trabalho com React e TypeScript, buscando sempre código limpo, escalável e com excelente experiência para o usuário. Acredito em tecnologia prática, visualmente atraente e que gera resultado de verdade."
+  "descricao": "Sou um Desenvolvedor Front-End que transforma necessidades reais em interfaces rápidas, acessíveis e profissionais. Trabalho com React e TypeScript, buscando sempre código limpo, escalável e com excelente experiência para o usuário. Acredito em tecnologia prática, visualmente atraente e que gera resultado de verdade.",
+  "sobreMy": {
+    "p1": "Desde cedo, me interessei por tecnologia e programação, fascinado por como algumas linhas de código podem transformar ideias em realidade. Comecei minha jornada explorando HTML, CSS e JavaScript, aprendendo na prática e construindo pequenos projetos para testar minhas habilidades.",
+    "p2": "Com o tempo, fui aprofundando meus conhecimentos em desenvolvimento web, migrando para React, TypeScript e criando projetos mais complexos, como sistemas de gerenciamento e dashboards interativos. Cada desafio me ensinou a importância de pensar na arquitetura, na performance e na experiência do usuário.",
+    "p3": "Hoje, trabalho focado em criar soluções modernas, escaláveis e elegantes, sempre buscando aprender novas tecnologias e melhorar minhas habilidades. Fora do trabalho, gosto de explorar frameworks, contribuir com projetos pessoais e estudar novas tendências, mantendo minha paixão por desenvolvimento sempre viva."
+  }
 }
