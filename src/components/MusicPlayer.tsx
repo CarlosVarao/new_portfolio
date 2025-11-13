@@ -67,7 +67,7 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className="fixed z-10 right-3 bottom-14 lg:left-7 lg:bottom-7 max-w-[190px] md:max-w-[270px] p-3 border rounded-xl border-gray-700 backdrop-blur-md shadow-2xl transition-all duration-300">
+      <div className="fixed z-10 right-3 bottom-14 lg:left-7 lg:bottom-7 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border rounded-xl border-gray-700 backdrop-blur-md shadow-2xl transition-all duration-300">
         <div className="flex items-center space-x-3">
           <img
             src={currentTrack.albumArtUrl}
