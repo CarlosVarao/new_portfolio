@@ -10,7 +10,7 @@ const MOCK_TRACK = {
 };
 
 export default function MusicPlayer() {
-  const [openPlaying, setOpenPlaying] = useState(false)
+  const [openPlaying, setOpenPlaying] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -18,8 +18,31 @@ export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    setOpenPlaying(true)
-  }, [])
+    setOpenPlaying(true);
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch(() => {
+        console.warn("Autoplay bloqueado — aguardando interação do usuário");
+        const enableOnClick = () => {
+          audio.play();
+          setIsPlaying(true);
+          document.removeEventListener("click", enableOnClick);
+        };
+        document.addEventListener("click", enableOnClick);
+      });
+
+    return () => {
+      audio.pause();
+      document.removeEventListener("click", () => { });
+    };
+  }, []);
 
   const togglePlayPause = useCallback(() => {
     const audio = audioRef.current;
@@ -32,9 +55,7 @@ export default function MusicPlayer() {
       audio
         .play()
         .then(() => setIsPlaying(true))
-        .catch((error) =>
-          console.error("Erro ao tentar tocar o áudio:", error)
-        );
+        .catch((error) => console.error("Erro ao tentar tocar o áudio:", error));
     }
   }, [isPlaying]);
 
@@ -63,8 +84,11 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-sm  transition-all duration-400 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"}`}>
-        <div className="flex items-center space-x-3 ">
+      <div
+        className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-sm transition-all duration-400 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"
+          }`}
+      >
+        <div className="flex items-center space-x-3">
           <img
             src={currentTrack.albumArtUrl}
             alt="Arte do Álbum"
@@ -72,6 +96,7 @@ export default function MusicPlayer() {
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
+              target.src = "default.jpg";
             }}
           />
 
