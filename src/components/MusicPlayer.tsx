@@ -63,7 +63,7 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-md  transition-all duration-500 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"}`}>
+      <div className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-md  transition-all duration-400 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"}`}>
         <div className="flex items-center space-x-3 ">
           <img
             src={currentTrack.albumArtUrl}
