@@ -40,8 +40,7 @@ export default function ProjectHub() {
         </div>
       )}
 
-      <Background>
-        <Header />
+      <Background header={<Header />}>
         <div className="text-center m-10">
           <h1 className="text-[#e2e8f0] text-5xl font-black font-primary">
             Project Hub

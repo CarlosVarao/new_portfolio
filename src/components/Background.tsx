@@ -19,7 +19,7 @@ export default function Background({ header, children }: BackgroundProps) {
         <div className="relative flex flex-col min-h-screen w-full">
           <div className="flex flex-1 justify-center">
             <div className="w-full max-w-5xl py-4 px-4 flex flex-col gap-17 md:gap-12">
-              <div>{header}</div>
+              <div className="xl:mt-6">{header}</div>
               <div className="w-full flex flex-col gap-25">{children}</div>
             </div>
           </div>
