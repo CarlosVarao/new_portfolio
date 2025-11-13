@@ -8,7 +8,7 @@ export default function Footer() {
         <a
           className=" hover:text-[#22D3EE] transition-colors"
           data-alt="GitHub profile"
-          href="https://github.com/CarlosVarao"
+          href="https://github.com/CarlosVarao" target="_blank"
         >
           <TbBrandGithub fontSize={26} />
         </a>
@@ -16,7 +16,7 @@ export default function Footer() {
         <a
           className="hover:text-[#22D3EE] transition-colors"
           data-alt="LinkedIn profile"
-          href="https://www.linkedin.com/in/carlosvaraofrontend"
+          href="https://www.linkedin.com/in/carlosvaraofrontend" target="_blank"
         >
           <LuLinkedin fontSize={26} />
         </a>
