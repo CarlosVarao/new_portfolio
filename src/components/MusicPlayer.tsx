@@ -1,10 +1,10 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { IoPlay } from "react-icons/io5";
-import { FaPause } from "react-icons/fa";
+import { FaPause } from "react-icons/fa6";
 
 const MOCK_TRACK = {
   title: "Apresentação",
-  artist: "Carlos varão",
+  artist: "Carlos Varão",
   albumArtUrl: "capa_album.jpg",
   audioUrl: "lofi.mp3",
 };
@@ -14,45 +14,36 @@ export default function MusicPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTrack] = useState(MOCK_TRACK);
-  const [isLooping] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlayPause = useCallback(() => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current
-          .play()
-          .catch((error) =>
-            console.error("Erro ao tentar tocar o áudio:", error)
-          );
-      }
-      setIsPlaying(!isPlaying);
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((error) =>
+          console.error("Erro ao tentar tocar o áudio:", error)
+        );
     }
   }, [isPlaying]);
 
   const handleTimeUpdate = useCallback(() => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
+    if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
   }, []);
 
   const handleLoadedMetadata = useCallback(() => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-    }
+    if (audioRef.current) setDuration(audioRef.current.duration);
   }, []);
 
   const handleTrackEnded = useCallback(() => {
     setIsPlaying(false);
   }, []);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.loop = isLooping;
-    }
-  }, [isLooping]);
 
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
@@ -67,7 +58,7 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className="fixed z-10 right-3 bottom-14 lg:left-7 lg:bottom-7 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border rounded-xl border-gray-700 backdrop-blur-md shadow-2xl transition-all duration-300">
+      <div className="fixed z-10 right-3 bottom-3 lg:left-7 lg:bottom-7 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-md shadow-2xl transition-all duration-300">
         <div className="flex items-center space-x-3">
           <img
             src={currentTrack.albumArtUrl}
@@ -99,7 +90,7 @@ export default function MusicPlayer() {
             onClick={togglePlayPause}
             className="bg-sky-500 hover:bg-sky-600 text-white p-2 rounded-full shadow-lg transition-all duration-300 active:scale-90 w-10 h-10 flex items-center justify-center shrink-0 cursor-pointer"
           >
-            {isLooping ? (
+            {isPlaying ? (
               <FaPause size={20} fill="white" />
             ) : (
               <IoPlay size={20} fill="white" />
