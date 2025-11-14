@@ -1,10 +1,10 @@
 {
   "nome": "Carlos Varão",
-  "profissao": "Desenvolvedor Front-End focado em interfaces modernas e performáticas.",
-  "descricao": "Sou um Desenvolvedor Front-End que transforma necessidades reais em interfaces rápidas, acessíveis e profissionais. Trabalho com React e TypeScript, buscando sempre código limpo, escalável e com excelente experiência para o usuário. Acredito em tecnologia prática, visualmente atraente e que gera resultado de verdade.",
+  "profissao": "Desenvolvedor Full Stack focado em soluções modernas e funcionais",
+  "descricao": "Transformo ideias em sistemas completos: interfaces rápidas e elegantes no front-end, lógica sólida no back-end e dados organizados. Trabalho com React, TypeScript e automações, sempre buscando código limpo, escalável e experiências que funcionam de verdade.",
   "sobreMy": {
-    "p1": "Desde cedo, me interessei por tecnologia e programação, fascinado por como algumas linhas de código podem transformar ideias em realidade. Comecei minha jornada explorando HTML, CSS e JavaScript, aprendendo na prática e construindo pequenos projetos para testar minhas habilidades.",
-    "p2": "Com o tempo, fui aprofundando meus conhecimentos em desenvolvimento web, migrando para React, TypeScript e criando projetos mais complexos, como sistemas de gerenciamento e dashboards interativos. Cada desafio me ensinou a importância de pensar na arquitetura, na performance e na experiência do usuário.",
-    "p3": "Hoje, trabalho focado em criar soluções modernas, escaláveis e elegantes, sempre buscando aprender novas tecnologias e melhorar minhas habilidades. Fora do trabalho, gosto de explorar frameworks, contribuir com projetos pessoais e estudar novas tendências, mantendo minha paixão por desenvolvimento sempre viva."
+    "p1": "Oi! Sou Carlos Varão, 26 anos, nascido em Brasília, crescido no Tocantins e atualmente em Recife. Venho de uma família humilde, que me ensinou valores como honestidade, humildade, responsabilidade, perseverança e empatia. Sou determinado, focado no futuro e busco sempre aprender e evoluir. Fora do trabalho, estudo programação, jogos online, musculação, futebol e vou à praia, mantendo equilíbrio entre mente, corpo e diversão.",
+    "p2": "Desde cedo sou apaixonado por tecnologia, explorando hardware, sistemas e programação. Curso Engenharia de Software e tenho conecimentos em React, TypeScript, Python e Node.js. Tenho experiência com bancos de dados como SQL Server e plataformas de dados modernas como Datasphere e Databricks, comecimentos de pipelines e Data Lakes. No dia a dia, utilizo Git, GitHub, VS Code, Power Automate, Power Apps, Power BI e N8n, aplicando minhas habilidades para criar soluções escaláveis, eficientes e inteligentes.",
+    "p3": "Sou um profissional proativo e colaborativo, que gosta de assumir responsabilidades, manter projetos em movimento e apoiar a equipe em todas as etapas. Com minha experiência em desenvolvimento e automações, posso contribuir para transformar ideias em soluções concretas, gerar valor real e ajudar a empresa ou projeto a crescer de forma rápida e consistente, sempre com foco em resultados e inovação."
   }
 }
