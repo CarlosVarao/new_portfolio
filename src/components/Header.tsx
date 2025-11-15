@@ -7,7 +7,7 @@ export default function Header() {
   const [clickSidbar, setClickSidbar] = useState(false);
 
   const arrayMenus = [
-    { label: "Home", link: "#" },
+    { label: "Home", link: "/" },
     { label: "Sobre", link: "#Sobre" },
     { label: "Projetos", link: "#Projetos" },
     { label: "Habilidades", link: "#Habilidades" },
@@ -131,12 +131,6 @@ export default function Header() {
                 href="mailto:carlosvarao.frontend@hotmail.com"
               >
                 carlosvarao.frontend@hotmail.com
-              </a>
-              <a
-                className="text-sm hover:text-primary"
-                href="tel:+55639992576214"
-              >
-                +55 (63) 99925-6214
               </a>
             </div>
           </div>

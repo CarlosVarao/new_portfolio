@@ -20,7 +20,7 @@ export default function MusicPlayer() {
   useEffect(() => {
     setInterval(() => {
       setOpenPlaying(true);
-    }, 800);
+    }, 1000);
   }, []);
 
   const togglePlayPause = useCallback(() => {
