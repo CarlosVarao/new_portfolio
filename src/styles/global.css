@@ -10,8 +10,9 @@
   --text-color-backgound: "#0a0a1a";
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  scroll-behavior: smooth !important;
 }
 
 #root {
