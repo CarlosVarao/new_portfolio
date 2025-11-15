@@ -6,7 +6,10 @@ export default function SectionContacts() {
   return (
     <>
       {ativarModal && <ModalEmail close={() => setAtivarModal(false)} />}
-      <div className="text-center max-w-2xl mx-auto section-glass px-[26px] py-12 md:p-10 font-secondary">
+      <div
+        className="text-center max-w-2xl mx-auto section-glass px-[26px] py-12 md:p-10 font-secondary"
+        id="Contatos"
+      >
         <h2 className=" text-xl text-[#22D3EE] mb-4">
           04. Qual o próximo passo?
         </h2>

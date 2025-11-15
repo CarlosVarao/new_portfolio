@@ -107,6 +107,7 @@ export default function Header() {
                           ? "bg-slate-200 text-slate-900"
                           : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
                       }`}
+                      onClick={() => setClickSidbar(false)}
                     >
                       {item.label}
                     </a>

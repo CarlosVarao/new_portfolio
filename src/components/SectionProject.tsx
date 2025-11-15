@@ -38,7 +38,10 @@ export default function SectionProject() {
       {ativarSpinner && <SpinnerBackground />}
 
       <CardSections numberSection="02." inforSection="Projetos">
-        <div className="flex flex-wrap justify-center gap-6">
+        <div
+          className="flex flex-wrap justify-center gap-6 scroll-mt-52"
+          id="Projetos"
+        >
           {dadosProjetos.map((item, index) => (
             <div
               key={index}

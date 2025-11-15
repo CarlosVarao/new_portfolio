@@ -6,7 +6,10 @@ export default function SectionAbout() {
   return (
     <>
       <CardSections numberSection="01." inforSection="Sobre Mim">
-        <div className="flex gap-7 flex-col md:flex-row">
+        <div
+          className="flex gap-7 flex-col md:flex-row scroll-mt-52"
+          id="Sobre"
+        >
           <div className="flex flex-col gap-4 text-base leading-relaxed font-primary text-[#94a3b8] text-justify">
             <p>{sobreMy.p1}</p>
             <p>{sobreMy.p2}</p>
