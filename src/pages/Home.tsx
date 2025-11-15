@@ -11,7 +11,17 @@ import MusicPlayer from "../components/MusicPlayer";
 export default function Home() {
   return (
     <>
-      <Background header={<Header />}>
+      <Background
+        header={
+          <Header
+            home="Home"
+            sobre="Sobre"
+            projetos="Projetos"
+            habilidades="Habilidades"
+            contatos="Contatos"
+          />
+        }
+      >
         <MusicPlayer />
         <SectionInicial />
         <SectionAbout />

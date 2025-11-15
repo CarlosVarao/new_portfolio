@@ -3,15 +3,29 @@ import { BsFillTerminalFill } from "react-icons/bs";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoExit } from "react-icons/io5";
 
-export default function Header() {
+interface menusNav {
+  home?: string;
+  sobre?: string;
+  projetos?: string;
+  habilidades?: string;
+  contatos?: string;
+}
+
+export default function Header({
+  home,
+  sobre,
+  projetos,
+  habilidades,
+  contatos,
+}: menusNav) {
   const [clickSidbar, setClickSidbar] = useState(false);
 
-  const arrayMenus = [
-    { label: "Home", link: "/" },
-    { label: "Sobre", link: "#Sobre" },
-    { label: "Projetos", link: "#Projetos" },
-    { label: "Habilidades", link: "#Habilidades" },
-    { label: "Contatos", link: "#Contatos" },
+  const arrayMenus: { label?: string; link: string }[] = [
+    { label: home, link: "#Home" },
+    { label: sobre, link: "#Sobre" },
+    { label: projetos, link: "#Projetos" },
+    { label: habilidades, link: "#Habilidades" },
+    { label: contatos, link: "#Contatos" },
   ];
 
   function exportCurriculo() {
@@ -39,16 +53,20 @@ export default function Header() {
           {/* Menu Desktop */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <ul className="flex items-center gap-4 lg:gap-6 font-secondary">
-              {arrayMenus.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.link}
-                    className="text-sm font-medium transition-colors hover:text-[#22D3EE]"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {arrayMenus.map((item) => {
+                if (item.label) {
+                  return (
+                    <li key={item.label}>
+                      <a
+                        href={item.link}
+                        className="text-sm font-medium transition-colors hover:text-[#22D3EE]"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  );
+                }
+              })}
             </ul>
 
             <button
@@ -98,21 +116,23 @@ export default function Header() {
             <ul className="flex flex-col gap-1">
               {arrayMenus.map((item) => {
                 const activeLink = "Home";
-                return (
-                  <li key={item.label}>
-                    <a
-                      href={item.link}
-                      className={`block w-full p-2 rounded-lg transition-colors ${
-                        activeLink === item.label
-                          ? "bg-slate-200 text-slate-900"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
-                      }`}
-                      onClick={() => setClickSidbar(false)}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                );
+                if (item.label) {
+                  return (
+                    <li key={item.label}>
+                      <a
+                        href={item.link}
+                        className={`block w-full p-2 rounded-lg transition-colors ${
+                          activeLink === item.label
+                            ? "bg-slate-200 text-slate-900"
+                            : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
+                        }`}
+                        onClick={() => setClickSidbar(false)}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  );
+                }
               })}
             </ul>
 

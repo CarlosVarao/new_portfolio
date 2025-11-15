@@ -12,9 +12,6 @@
 
 #root {
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-gutter: stable;
 }
 
 .glass-effect {
@@ -76,11 +73,9 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-   background-color: oklch(55% 0.169 237.323);
+  background-color: oklch(55% 0.169 237.323);
   cursor: pointer;
 }
-
-
 
 @layer components {
   .slider {
