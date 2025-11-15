@@ -10,6 +10,10 @@
   --text-color-backgound: "#0a0a1a";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   overflow-x: hidden;
 }
