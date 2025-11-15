@@ -10,7 +10,7 @@ const MOCK_TRACK = {
 };
 
 export default function MusicPlayer() {
-  const [openPlaying, setOpenPlaying] = useState(false)
+  const [openPlaying, setOpenPlaying] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -18,8 +18,10 @@ export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    setOpenPlaying(true)
-  }, [])
+    setInterval(() => {
+      setOpenPlaying(true);
+    }, 800);
+  }, []);
 
   const togglePlayPause = useCallback(() => {
     const audio = audioRef.current;
@@ -63,7 +65,11 @@ export default function MusicPlayer() {
         preload="metadata"
       />
 
-      <div className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-sm  transition-all duration-550 md:duration-400 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${openPlaying ? "" : "translate-x-[280px]"}`}>
+      <div
+        className={`fixed z-10 right-5 bottom-5 max-w-[190px] md:max-w-[270px] py-3 px-4 md:p-3 border border-gray-700 rounded-xl backdrop-blur-sm  transition-all duration-550 md:duration-400 shadow-[0_0_26px_rgba(0,0,0,0.3)] ${
+          openPlaying ? "" : "translate-x-[280px]"
+        }`}
+      >
         <div className="flex items-center space-x-3 ">
           <img
             src={currentTrack.albumArtUrl}
@@ -76,7 +82,7 @@ export default function MusicPlayer() {
           />
 
           <div className="flex-1 min-w-0 pr-1">
-            <p className="text-sm font-bold text-white truncate">
+            <p className="text-sm font-bold text-white truncate drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]">
               {currentTrack.title}
             </p>
             <p className="text-xs text-gray-400 truncate text-wrap">
