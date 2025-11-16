@@ -10,14 +10,14 @@ interface Data {
 export async function enviarEmail(data: Data) {
   try {
     const response = await emailjs.send(
-      "service_rcmi9oi",
-      "template_e6ik63p",
+      "service_ilbg5co",
+      "template_46yzh7q",
       {
         remetente: data.remetente,
         assunto: data.assunto,
         messagem: data.messagem,
       },
-      { publicKey: "ZkULdo3tzcNtOjiFp" }
+      { publicKey: "TnLd8tMXzfFuWNxNS" }
     );
 
     return response;
