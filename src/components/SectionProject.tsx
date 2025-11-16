@@ -39,7 +39,7 @@ export default function SectionProject() {
 
       <CardSections numberSection="02." inforSection="Projetos">
         <div
-          className="flex flex-wrap justify-center gap-6 scroll-mt-52"
+          className="flex flex-wrap justify-center gap-6 scroll-m-72"
           id="Projetos"
         >
           {dadosProjetos.map((item, index) => (

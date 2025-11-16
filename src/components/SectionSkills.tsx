@@ -6,7 +6,7 @@ export default function SectionSkills() {
     <>
       <CardSections numberSection="03." inforSection="Habilidades">
         <div
-          className="font-secondary flex flex-wrap justify-center gap-6 scroll-mt-52"
+          className="font-secondary flex flex-wrap justify-center gap-6 scroll-m-72"
           id="Habilidades"
         >
           {skills.map((skills, index) => (
