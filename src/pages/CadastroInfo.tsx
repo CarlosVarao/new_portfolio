@@ -5,6 +5,7 @@ import { enviarCadastroGit, downloadsArquivos } from "../services/servicesApi";
 
 export default function CadastroInfo() {
   const [loading, setLoading] = useState(false);
+  const [loadingEnviar, setLoadingEnviar] = useState(false);
   const [modal, setModal] = useState(false);
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
@@ -52,14 +53,16 @@ export default function CadastroInfo() {
     if (!valueDadosImgInput && !valueDadosJsonInput) {
       return alert("Preencha as inputs!");
     }
-
+    setLoadingEnviar(true);
     try {
       enviarCadastroGit({
         fileImg: valueDadosImgInput,
         fileJson: valueDadosJsonInput,
       });
+      setLoadingEnviar(false);
     } catch (error) {
       console.log(error);
+      setLoadingEnviar(false);
     }
   }
 
@@ -178,17 +181,12 @@ export default function CadastroInfo() {
                   site.
                 </p>
 
-                <label className="cursor-pointer inline-block">
-                  <span className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-lg font-medium text-xs">
-                    Selecionar arquivo
-                  </span>
-
-                  <input
-                    type="file"
-                    onChange={dadosInputImg}
-                    className="hidden"
-                  />
-                </label>
+                <input
+                  id="file_input"
+                  type="file"
+                  onChange={dadosInputImg}
+                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
+                />
               </div>
 
               {/* SEÇÃO 3 — DATA */}
@@ -201,28 +199,26 @@ export default function CadastroInfo() {
                   Utilize este campo para atualizar informações utilizadas no
                   conteúdo do site.
                 </p>
-
-                <label className="cursor-pointer inline-block">
-                  <span className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-lg font-medium text-xs">
-                    Selecionar arquivo
-                  </span>
-
-                  <input
-                    type="file"
-                    accept=".json"
-                    onChange={dadosInputJson}
-                    className="hidden"
-                  />
-                </label>
+                <input
+                  id="file_input"
+                  type="file"
+                  accept=".json"
+                  onChange={dadosInputJson}
+                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
+                />
               </div>
 
               {/* BOTÃO FINAL */}
               <button
                 className="cursor-pointer rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 
-                   text-sm py-3 font-bold text-white transition-all hover:opacity-85 w-full mt-2"
+                   text-sm py-3 font-bold text-white transition-all hover:opacity-85 w-full mt-2 flex justify-center"
                 onClick={enviarDados}
               >
-                Enviar Dados
+                {loadingEnviar ? (
+                  <SpinnerBtn width={20} height={20} />
+                ) : (
+                  "Enviar Dados"
+                )}
               </button>
             </div>
           </div>
