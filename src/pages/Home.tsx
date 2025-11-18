@@ -15,7 +15,7 @@ export default function Home() {
 
   setInterval(() => {
     setAtivarSpinner(false);
-  }, 3000);
+  }, 2700);
 
   return (
     <>
