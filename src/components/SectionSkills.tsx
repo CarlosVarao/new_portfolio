@@ -20,7 +20,7 @@ export default function SectionSkills() {
                 {skills.tecnologia.map((item, i) => (
                   <p
                     key={item}
-                    className="font-primary text-sm text-[#94a3b8] hover:text-[#22D3EE] cursor-pointer"
+                    className="font-primary text-sm text-[#94a3b8] hover:text-[#22D3EE] cursor-default"
                   >
                     {item}
                     <span className="text-[#22D3EE] hover:text-[#94a3b8]">
