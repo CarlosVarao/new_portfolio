@@ -120,3 +120,16 @@ async function enviarOuAtualizarArquivo(
   console.log(`✅ ${fileName} enviado com sucesso.`);
   return putResponse.data;
 }
+
+export async function downloadsArquivos(data: string) {
+  const url = `https://raw.githubusercontent.com/CarlosVarao/new_portfolio/main/src/data/${data}`;
+  const response = await axios.get(url, { responseType: "blob" });
+  const downloadUrl = URL.createObjectURL(response.data);
+  const link = document.createElement("a");
+  link.href = downloadUrl;
+  link.download = data;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(downloadUrl);
+}

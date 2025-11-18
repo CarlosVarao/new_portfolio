@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SpinnerBtn from "../components/SpinnerBtn";
 import Background from "../components/Background";
-import { enviarCadastroGit } from "../services/servicesApi";
+import { enviarCadastroGit, downloadsArquivos } from "../services/servicesApi";
 
 export default function CadastroInfo() {
   const [loading, setLoading] = useState(false);
@@ -61,18 +61,6 @@ export default function CadastroInfo() {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  async function downloadsArquivos(data: string) {
-    const url = `https://raw.githubusercontent.com/CarlosVarao/new_portfolio/main/src/data/${data}`;
-    const response = await fetch(url);
-    const blob = await response.blob();
-    const downloadUrl = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = downloadUrl;
-    link.download = data;
-    link.click();
-    URL.revokeObjectURL(downloadUrl);
   }
 
   return (
