@@ -1,9 +1,7 @@
-import { useState } from "react";
 import CardSections from "./CardSections";
 import { FaRegFolder } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 //import SpinnerBackground from "./SpinnerBackground";
-import LoadingHome from "../components/LoadingHome";
 import { useNavigate } from "react-router-dom";
 import dadosProjetos from "../data/projetos.json";
 
