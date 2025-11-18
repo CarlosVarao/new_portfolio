@@ -37,11 +37,6 @@ export async function enviarCadastroGit({ fileImg, fileJson }: DadosInputs) {
   const repo = "new_portfolio";
   const token = import.meta.env.VITE_TOKEN_GIT;
 
-  if (!fileJson && !fileImg) {
-    console.error("Nenhum arquivo foi enviado.");
-    return;
-  }
-
   // ====== UPLOAD DO JSON ======
   if (fileJson) {
     const pathJson = `src/data/${fileJson.name}`;
