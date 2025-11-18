@@ -13,7 +13,7 @@ export default function ProjectHub() {
 
   setInterval(() => {
     setSpinnerLoading(false);
-  }, 4000);
+  }, 2500);
 
   if (!state) {
     return <Navigate to="/" replace />;
