@@ -19,25 +19,16 @@ interface Project {
 }
 
 export default function SectionProject() {
-  const [ativarSpinner, setAtivarSpinner] = useState(false);
   const navigate = useNavigate();
 
   function openProject(project: Project) {
-    setAtivarSpinner(true);
-
-    setTimeout(() => {
-      setAtivarSpinner(false);
-
-      navigate("/project-hub", {
-        state: project,
-      });
-    }, 2000);
+    navigate("/project-hub", {
+      state: project,
+    });
   }
 
   return (
     <>
-      {ativarSpinner && <LoadingHome />}
-
       <CardSections numberSection="02." inforSection="Projetos">
         <div
           className="flex flex-wrap justify-center gap-6 scroll-m-72"
