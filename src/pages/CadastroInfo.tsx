@@ -185,7 +185,7 @@ export default function CadastroInfo() {
                   id="file_input"
                   type="file"
                   onChange={dadosInputImg}
-                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
+                  className="file:cursor-pointer cursor-pointer file:mr-2 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-30 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px] break-all"
                 />
               </div>
 
@@ -204,7 +204,7 @@ export default function CadastroInfo() {
                   type="file"
                   accept=".json"
                   onChange={dadosInputJson}
-                  className="file:cursor-pointer cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-40 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
+                  className="file:cursor-pointer cursor-pointer file:mr-2 file:rounded-lg file:border-0 file:bg-linear-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-1 file:w-30 file:text-white file:font-medium hover:file:opacity-90 text-white/70 text-[12px]"
                 />
               </div>
 
