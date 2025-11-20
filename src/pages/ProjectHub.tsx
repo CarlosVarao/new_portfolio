@@ -79,16 +79,29 @@ export default function ProjectHub() {
                 <p className="md:text-justify break-all md:break-normal whitespace-pre-line">
                   {state.descriptionCompleto}
                 </p>
-                <p className="text-[#e2e8f0] font-semibold text-base mt-10">
-                  Link do Repositório:
-                  <a
-                    target="_blank"
-                    href={state.hrefGithub}
-                    className="font-light ml-1 text-[#22D3EE] hover:underline transition-colors duration-200 break-all"
-                  >
-                    {state.hrefGithub}
-                  </a>
-                </p>
+
+                <div className="mt-7 flex flex-col gap-2">
+                  <p className="text-[#e2e8f0] font-semibold text-base">
+                    Link do site:
+                    <a
+                      target="_blank"
+                      href={state.hrefSite}
+                      className="font-light ml-1 text-[#22D3EE] hover:underline transition-colors duration-200 break-all"
+                    >
+                      {state.hrefSite}
+                    </a>
+                  </p>
+                  <p className="text-[#e2e8f0] font-semibold text-base">
+                    Link do Repositório:
+                    <a
+                      target="_blank"
+                      href={state.hrefGithub}
+                      className="font-light ml-1 text-[#22D3EE] hover:underline transition-colors duration-200 break-all"
+                    >
+                      {state.hrefGithub}
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </CardSections>
