@@ -82,7 +82,7 @@ export default function ProjectHub() {
 
                 <div className="mt-7 flex flex-col gap-2">
                   <p className="text-[#e2e8f0] font-semibold text-base">
-                    Link do site:
+                    Link do Site:
                     <a
                       target="_blank"
                       href={state.hrefSite}
