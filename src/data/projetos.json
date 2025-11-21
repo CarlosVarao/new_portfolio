@@ -14,5 +14,16 @@
     "hrefGithub": "https://github.com/CarlosVarao/localizador-cep-react",
     "myVideo": "https://www.youtube.com/-nmZz21tzO4",
     "imgProjeto": "localizador-cep-react.png"
+  },
+  {
+    "rota": "/project-hub",
+    "title": "ImageCompressor",
+    "descriptionResumo": "Aplicação React que comprime imagens diretamente no navegador, permitindo reduzir o tamanho do arquivo sem perda perceptível de qualidade. É possível selecionar uma imagem, ajustar o nível de compressão, visualizar o resultado e baixar a versão otimizada. Interface rápida, leve e responsiva.",
+    "descriptionCompleto": "ImageCompressor é uma aplicação React desenvolvida para comprimir imagens diretamente no navegador, sem necessidade de enviar arquivos para servidores externos.\n\nO usuário pode selecionar uma imagem, visualizar seu tamanho original, ajustar o nível de compressão e gerar uma nova versão otimizada para download. O processamento é feito totalmente no lado do cliente, garantindo velocidade, privacidade e segurança.\n\nA aplicação suporta formatos como JPG, PNG e WebP, permitindo controlar a qualidade final e reduzindo significativamente o tamanho dos arquivos. A interface foi construída com foco em simplicidade e responsividade, funcionando bem tanto em desktop quanto em dispositivos móveis.\n\nTecnologias utilizadas: React, TypeScript, hooks, FileReader API e manipulação de blobs.\n\nPara rodar o projeto localmente:\n1. Clone o repositório: git clone https://github.com/CarlosVarao/Compress_Image\n2. Entre na pasta: cd Compress_Image\n3. Instale as dependências: npm install\n4. Execute em modo de desenvolvimento: npm run dev\n\nPara acessar via outros dispositivos:\nnpm run dev -- --host\n\nDepois, abra no navegador: http://localhost:SUA_PORTA",
+    "tecnologias": ["React", "TypeScript", "Html", "Css"],
+    "hrefSite": "https://compressimage.carlosvarao.dev.br",
+    "hrefGithub": "https://github.com/CarlosVarao/Compress_Image",
+    "myVideo": "https://www.youtube.com/-nmZz21tzO4",
+    "imgProjeto": "image-compressor.png"
   }
 ]
