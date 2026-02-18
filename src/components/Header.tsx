@@ -30,8 +30,8 @@ export default function Header({
 
   function exportCurriculo() {
     const link = document.createElement("a");
-    link.href = "/Curriculo_Carlos_Oliveira_Varao.docx";
-    link.download = "Curriculo_Carlos_Oliveira_Varao.docx";
+    link.href = "/Curriculo_Carlosvarao.docx";
+    link.download = "Curriculo_Carlosvarao.docx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -92,15 +92,13 @@ export default function Header({
 
       {/* SIDEBAR */}
       <div
-        className={`fixed inset-0 z-50 h-dvh w-full flex font-primary transition-opacity duration-300 ease-in-out backdrop-blur-sm ${
-          clickSidbar ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-50 h-dvh w-full flex font-primary transition-opacity duration-300 ease-in-out backdrop-blur-sm ${clickSidbar ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setClickSidbar(false)}
       >
         <div
-          className={`relative h-full w-[75%] flex flex-col bg-white text-slate-900 p-6 transition-transform duration-300 ease-in-out ${
-            clickSidbar ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`relative h-full w-[75%] flex flex-col bg-white text-slate-900 p-6 transition-transform duration-300 ease-in-out ${clickSidbar ? "translate-x-0" : "-translate-x-full"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-8">
@@ -121,11 +119,10 @@ export default function Header({
                     <li key={item.label}>
                       <a
                         href={item.link}
-                        className={`block w-full p-2 rounded-lg transition-colors ${
-                          activeLink === item.label
-                            ? "bg-slate-200 text-slate-900"
-                            : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
-                        }`}
+                        className={`block w-full p-2 rounded-lg transition-colors ${activeLink === item.label
+                          ? "bg-slate-200 text-slate-900"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-200"
+                          }`}
                         onClick={() => setClickSidbar(false)}
                       >
                         {item.label}
