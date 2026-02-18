@@ -15,7 +15,7 @@ export default function SectionInicia() {
           {informacoesIniciais.nome}
         </h1>
 
-        <h2 className="tracking-tighter bg-clip-text text-transparent bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-50%  to-emerald-500 text-2xl md:text-5xl  font-bold leading-tight ">
+        <h2 className=" tracking-tighter bg-clip-text text-transparent bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-50%  to-emerald-500 text-[23px] md:text-5xl  font-bold leading-tight ">
           {informacoesIniciais.profissao}
         </h2>
 
