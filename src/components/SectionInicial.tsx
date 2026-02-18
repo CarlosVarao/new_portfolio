@@ -19,7 +19,7 @@ export default function SectionInicia() {
           {informacoesIniciais.profissao}
         </h2>
 
-        <p className="max-w-2xl text-sm md:text-base font-normal leading-relaxed text-[#94a3b8] font-primary text-justify md:text-left">
+        <p className="max-w-3xl text-sm md:text-base font-normal leading-relaxed text-[#94a3b8] font-primary text-justify md:text-left">
           {informacoesIniciais.descricao}
         </p>
 
