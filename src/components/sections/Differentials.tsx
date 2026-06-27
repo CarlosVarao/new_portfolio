@@ -28,7 +28,7 @@ export function Differentials() {
                 <h3 className="mb-2 font-display text-[17px] font-semibold text-ink">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-[1.65] text-muted">{item.text}</p>
+                <p className="text-justify text-sm leading-[1.65] text-muted">{item.text}</p>
               </div>
             </Reveal>
           );

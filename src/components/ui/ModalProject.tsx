@@ -62,7 +62,7 @@ export function ModalProject({ project, onClose }: Props) {
             <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
               Problema
             </span>
-            <p className="text-[13px] leading-[1.65] text-muted">
+            <p className="text-justify text-[13px] leading-[1.65] text-muted">
               {project.problem}
             </p>
           </div>
@@ -70,7 +70,7 @@ export function ModalProject({ project, onClose }: Props) {
             <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
               Resultado
             </span>
-            <p className="text-[13px] leading-[1.65] text-muted">
+            <p className="text-justify text-[13px] leading-[1.65] text-muted">
               {project.result}
             </p>
           </div>
