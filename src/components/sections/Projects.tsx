@@ -10,7 +10,10 @@ export function Projects() {
 
   return (
     <>
-      <section id="projetos" className="relative min-h-screen overflow-hidden border-y border-line bg-base">
+      <section
+        id="projetos"
+        className="relative min-h-screen overflow-hidden border-y border-line bg-base"
+      >
         {/* Grid técnico animado */}
         <div className="tech-grid-p pointer-events-none absolute inset-0 animate-gridDrift" />
         {/* Brilho do acento */}
@@ -64,11 +67,10 @@ export function Projects() {
                       <div className="font-display text-[22px] font-bold text-accent">
                         {project.metric}
                       </div>
-                      <span className="font-mono text-[11px] text-faint transition-colors group-hover:text-accent">
+                      <span className="font-mono text-[11px] text-accent transition-colors">
                         ver detalhes →
                       </span>
                     </div>
-
                   </button>
                 </Reveal>
               );
