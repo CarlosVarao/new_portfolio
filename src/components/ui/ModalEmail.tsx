@@ -107,7 +107,7 @@ export function ModalEmail({ onClose }: Props) {
               <input
                 className="w-full cursor-not-allowed rounded-lg border border-line bg-surface2 px-4 py-2.5 text-sm text-faint focus:outline-none"
                 disabled
-                value="carlosvarao.frontend@hotmail.com"
+                value="carllosvarao@gmail.com"
               />
             </div>
           </div>
