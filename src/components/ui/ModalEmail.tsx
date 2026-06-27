@@ -42,9 +42,7 @@ export function ModalEmail({ onClose }: Props) {
 
     setLoading(true);
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, {
-        publicKey: PUBLIC_KEY,
-      });
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, PUBLIC_KEY);
       showToast("E-mail enviado com sucesso!", true);
       setValues(initialValues);
     } catch (err) {
