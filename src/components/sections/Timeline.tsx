@@ -17,14 +17,14 @@ export function Timeline() {
   return (
     <section
       id="trajetoria"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden border-y border-line bg-base"
+      className="relative overflow-hidden border-y border-line bg-base"
     >
       {/* Grid técnico animado */}
       <div className="tech-grid pointer-events-none absolute inset-0 animate-gridDrift" />
       {/* Brilho do acento */}
       <div className="pointer-events-none absolute -right-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
-      <div className="mx-auto max-w-[1100px] px-7">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div className="mx-auto max-w-[1200px] px-7 py-[110px]">
+        <div className="mb-[54px] flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             index="02"
             eyebrow="TRAJETÓRIA"
@@ -81,7 +81,7 @@ export function Timeline() {
 
         {/* Pipeline (blocos) -------------------------------------------- */}
         <Reveal>
-          <div className="-mx-7 overflow-x-auto px-7 pb-1">
+          <div className="-mx-7 overflow-x-auto px-7 py-2">
             <div className="relative flex min-w-[860px] items-stretch justify-between gap-3.5">
               {/* Trilho + partículas */}
               <div className="pointer-events-none absolute left-3 right-3 top-1/2 z-[1] h-0.5 -translate-y-1/2 bg-gradient-to-r from-line to-line">
@@ -186,12 +186,12 @@ export function Timeline() {
 
                 {/* Linha 2: Logo (esq) | Role + Company (dir) */}
                 <div className="flex items-start gap-4">
-                  <span className="grid h-[52px] w-[52px] flex-none place-items-center overflow-hidden rounded-[6px] border border-line bg-surface">
+                  <span className="grid h-[52px] w-[52px] flex-none place-items-center overflow-hidden border border-line bg-surface">
                     {entry.logo ? (
                       <img
                         src={entry.logo}
                         alt={entry.company}
-                        className="h-full w-full rounded-[6px] object-contain p-1.5"
+                        className="h-full w-full object-contain p-1.5"
                       />
                     ) : (
                       <Icon className="h-5 w-5 text-accent" />
