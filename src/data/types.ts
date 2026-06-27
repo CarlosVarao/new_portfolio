@@ -50,6 +50,7 @@ export interface Education {
   org: string;
   year: string;
   type: string;
+  link?: string;
 }
 
 export interface SocialLink {

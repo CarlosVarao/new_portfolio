@@ -10,7 +10,7 @@ export function Projects() {
 
   return (
     <>
-      <section id="projetos" className="relative overflow-hidden border-y border-line bg-base">
+      <section id="projetos" className="relative min-h-screen overflow-hidden border-y border-line bg-base">
         {/* Grid técnico animado */}
         <div className="tech-grid-p pointer-events-none absolute inset-0 animate-gridDrift" />
         {/* Brilho do acento */}
@@ -28,7 +28,7 @@ export function Projects() {
             mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 80%);
           }
         `}</style>
-        <div className="relative mx-auto max-w-[1200px] px-7 py-[72px]">
+        <div className="relative mx-auto flex min-h-screen max-w-[1200px] flex-col justify-center px-7 py-[72px]">
           <div className="mb-[40px]">
             <SectionHeading
               index="04"

@@ -17,7 +17,7 @@ export function Timeline() {
   return (
     <section
       id="trajetoria"
-      className="relative overflow-hidden border-y border-line bg-base"
+      className="relative min-h-screen overflow-hidden border-y border-line bg-base"
     >
       {/* Grid técnico animado */}
       <div className="tech-grid pointer-events-none absolute inset-0 animate-gridDrift" />
