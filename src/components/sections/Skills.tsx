@@ -4,7 +4,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Skills() {
   return (
-    <section id="competencias" className="mx-auto max-w-[1200px] px-7 py-[110px]">
+    <section
+      id="competencias"
+      className="mx-auto max-w-[1200px] px-7 py-[110px]"
+    >
       <div className="mb-[54px]">
         <SectionHeading
           index="03"
@@ -13,12 +16,12 @@ export function Skills() {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-[22px] md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-[25px] md:grid-cols-2 lg:grid-cols-2">
         {skillGroups.map((group, i) => {
           const Icon = group.icon;
           return (
-            <Reveal key={group.title} delay={i * 0.05}>
-              <div className="h-full rounded-[18px] border border-line bg-surface p-[30px]">
+            <Reveal key={group.title} delay={i * 0.05} className={i === skillGroups.length - 1 ? "md:col-span-2" : ""}>
+              <div className="h-full rounded-[18px] border border-line bg-surface p-5">
                 <div className="mb-[22px] flex items-center gap-3">
                   <span className="grid h-[42px] w-[42px] place-items-center rounded-[11px] bg-accent-soft text-accent">
                     <Icon className="h-5 w-5" />
@@ -33,11 +36,11 @@ export function Skills() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="cursor-default rounded-[9px] border border-line bg-surface2 px-3.5 py-2 text-[13px] text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft hover:text-ink"
+                      className="cursor-default rounded-[7px] border border-line bg-surface2 px-2.5 py-1 text-[11px] text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft hover:text-ink"
                     >
                       {item}
                     </span>
