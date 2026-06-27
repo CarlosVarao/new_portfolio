@@ -16,6 +16,7 @@ export interface TimelineEntry {
   company: string;
   role: string;
   icon: LucideIcon;
+  logo?: string;
   description: string;
   tech: string[];
 }

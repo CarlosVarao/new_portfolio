@@ -1,42 +1,122 @@
-import { Database, Code2, GitMerge, Terminal } from "lucide-react";
+import { Database, Terminal } from "lucide-react";
 import type { TimelineEntry } from "./types";
-
-const lorem =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.";
-const loremShort =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.";
 
 export const timeline: TimelineEntry[] = [
   {
-    year: "2024",
-    company: "Empresa A",
-    role: "Engenheiro de Dados Sênior",
+    year: "2025",
+    company: "Masterboi",
+    role: "Engenheiro de Dados",
     icon: Database,
-    description: lorem,
-    tech: ["Databricks", "Spark", "SAP Datasphere"],
+    logo: "/masterboi.jpg",
+    description:
+      "Atuação como Engenheiro de Dados, desenvolvendo automações, pipelines de dados e processos ETL/ELT para extração, tratamento e disponibilização de informações voltadas ao suporte operacional e estratégico do negócio. Responsável pela integração e manipulação de dados entre diferentes sistemas e ambientes corporativos, com foco também em otimização de queries e performance, utilizando plataformas como Databricks, AWS e Azure, além de PySpark, com aplicação de arquiteturas modernas como o modelo Medallion (Bronze, Silver e Gold) e práticas de governança de dados com Unity Catalog, garantindo organização, qualidade e controle de acesso aos dados ao longo do fluxo de transformação. Possuo também conhecimentos em SAP ERP, desenvolvimento SAP ABAP, SAP Datasphere e integrações via SAP CPI, permitindo atuar na conexão entre sistemas transacionais e plataformas analíticas. No dia a dia, utilizo ferramentas como Git para versionamento de código e colaboração em equipe, além de inteligência artificial como Claude para apoio no desenvolvimento, análise, automação e geração de soluções mais eficientes e produtivas.",
+    tech: [
+      "Git",
+      "AWS",
+      "Azure",
+      "ETL/ELT",
+      "PySpark",
+      "Databricks",
+      "SAP ABAP",
+      "SAP CPI",
+      "Medallion",
+      "SAP Datasphere",
+      "Unity Catalog",
+      "Governança de dados",
+      "Pipelines de dados",
+    ],
+  },
+  {
+    year: "2024",
+    company: "Masterboi",
+    role: "Analista de Sistemas",
+    icon: Terminal,
+    logo: "/masterboi.jpg",
+    description:
+      "Atuação como Analista de Sistemas, sendo responsável pelo suporte e sustentação de sistemas corporativos, realizando análise e resolução de incidentes, identificação de falhas, validação de regras de negócio e acompanhamento de processos sistêmicos. Atuei com diferentes plataformas corporativas, incluindo o ecossistema SAP, sistemas de vendas, sempre com foco na estabilidade, eficiência e continuidade operacional. Durante essa atuação, tive forte utilização de banco de dados para análises, criação de views e suporte direto aos sistemas, contribuindo para a qualidade e confiabilidade das informações. Também atuei em diversas integrações entre sistemas, realizando mapeamento de fluxos, identificação de inconsistências e implementação de melhorias para garantir a comunicação correta entre as plataformas. Responsável pelo suporte técnico aos usuários, treinamento operacional e acompanhamento de processos sistêmicos, atendendo diferentes áreas da empresa com foco na resolução ágil de problemas e na melhoria contínua das operações.",
+    tech: [
+      "SAP",
+      "TOTVS RH",
+      "Views SQL",
+      "Banco de dados",
+      "Suporte técnico",
+      "Suporte de sistemas",
+      "Análise de incidentes",
+      "Regras de negócio",
+      "Mapeamento de fluxos",
+      "Integração de sistemas",
+    ],
   },
   {
     year: "2022",
-    company: "Empresa B",
-    role: "Desenvolvedor SAP ABAP",
-    icon: Code2,
-    description: lorem,
-    tech: ["ABAP", "CDS Views", "OData"],
+    company: "Masterboi",
+    role: "Analista de PCP",
+    icon: Terminal,
+    logo: "/masterboi.jpg",
+    description:
+      "Atuação na área de PCP (Planejamento e Controle da Produção), sendo responsável pela programação e acompanhamento operacional da área fria da indústria frigorífica. Durante essa atuação, tive forte utilização do SAP para controle de demanda, programação de produção e alinhamento entre as áreas corporativas e a operação industrial, além de operar sistemas de chão de fábrica para acompanhamento e controle dos processos produtivos. Também atuei no desenvolvimento de relatórios e dashboards em Power BI, transformando dados operacionais em informações estratégicas para suporte à tomada de decisão e cumprimento do planejamento fabril, garantindo eficiência, produtividade e rastreabilidade dos processos.",
+    tech: [
+      "PCP",
+      "SAP",
+      "Power BI",
+      "Dashboards",
+      "Automações",
+      "Análise de dados",
+      "Chão de fábrica",
+      "Controle operacional",
+      "Programação de produção",
+    ],
   },
   {
     year: "2020",
-    company: "Empresa C",
-    role: "Analista de Integração",
-    icon: GitMerge,
-    description: loremShort,
-    tech: ["PI/PO", "REST", "SAP HANA"],
+    company: "Masterboi",
+    role: "Assist. de Transportes",
+    icon: Terminal,
+    logo: "/masterboi.jpg",
+    description:
+      "Atuação no acompanhamento e suporte às operações logísticas, realizando monitoramento de veículos, apoio na contratação de transportes, acompanhamento de cargas até a entrega ao cliente e suporte na administração de frota própria. Durante essa trajetória, tive contato e operação com diversos sistemas de monitoramento de frota, além de forte atuação com SAP, realizando lançamentos, consultas e controle operacional diretamente no sistema. Responsável por auxiliar no controle operacional, garantindo eficiência, rastreabilidade e cumprimento dos prazos logísticos.",
+    tech: [
+      "SAP",
+      "CT-e",
+      "Logística",
+      "Rastreabilidade",
+      "Notas fiscais",
+      "Gestão de entregas",
+      "Monitoramento de frota",
+      "Controle operacional",
+    ],
+  },
+  {
+    year: "2019",
+    company: "Masterboi",
+    role: "Balanceiro",
+    icon: Terminal,
+    logo: "/masterboi.jpg",
+    description:
+      "Responsável pela conferência, controle e registro da produção industrial, realizando validação de produtos, quantidades e padrões de qualidade antes da entrada em estoque. Atuação no acompanhamento da etapa final do processo produtivo, garantindo conformidade das embalagens, pesagem e lançamento correto das informações no sistema de chão de fábrica.",
+    tech: [
+      "Pesagem",
+      "Conformidade",
+      "Chão de fábrica",
+      "Gestão de estoque",
+      "Controle de produção",
+      "Garantia de qualidade",
+    ],
   },
   {
     year: "2018",
-    company: "Empresa D",
-    role: "Desenvolvedor Júnior",
+    company: "Masterboi",
+    role: "Assist. de Produção",
     icon: Terminal,
-    description: loremShort,
-    tech: ["SQL", "Java", "ETL"],
+    logo: "/masterboi.jpg",
+    description:
+      "Atuação no suporte às atividades do processo produtivo, auxiliando na organização, operação e andamento das rotinas da fábrica, contribuindo para o fluxo e eficiência da produção.",
+    tech: [
+      "Adaptabilidade",
+      "Trabalho em equipe",
+      "Suporte à produção",
+      "Operação industrial",
+      "Organização de processos",
+    ],
   },
 ];
