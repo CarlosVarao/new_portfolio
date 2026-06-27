@@ -22,7 +22,7 @@ export function Timeline() {
       {/* Grid técnico animado */}
       <div className="tech-grid pointer-events-none absolute inset-0 animate-gridDrift" />
       {/* Brilho do acento */}
-      <div className="pointer-events-none absolute -right-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
+      <div className="pointer-events-none absolute -left-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
       <div className="mx-auto max-w-[1200px] px-7 py-[110px]">
         <div className="mb-[54px] flex flex-wrap items-end justify-between gap-4">
           <SectionHeading

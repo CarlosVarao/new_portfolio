@@ -38,6 +38,7 @@ export const skillGroups: SkillGroup[] = [
       "CDS Views",
       "SAP S/4HANA",
       "SAP Script",
+      "ADT Eclipse",
       "CPI Integration Suite",
       "SAP Datasphere",
     ],

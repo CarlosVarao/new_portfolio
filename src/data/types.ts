@@ -31,6 +31,7 @@ export interface SkillGroup {
 export interface Project {
   name: string;
   icon: LucideIcon;
+  summary: string;
   problem: string;
   result: string;
   metric: string;
