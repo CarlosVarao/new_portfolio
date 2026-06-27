@@ -3,7 +3,7 @@ import type { TimelineEntry } from "./types";
 
 export const timeline: TimelineEntry[] = [
   {
-    year: "2025",
+    year: "2026",
     company: "Masterboi",
     role: "Engenheiro de Dados",
     icon: Database,

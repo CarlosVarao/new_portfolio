@@ -8,8 +8,6 @@ const iconMap = {
 } as const;
 
 export function Contact() {
-  const year = new Date().getFullYear();
-
   return (
     <footer id="contato" className="border-t border-line">
       <div className="mx-auto max-w-[900px] px-7 pb-16 pt-[110px] text-center">
@@ -47,9 +45,9 @@ export function Contact() {
         </Reveal>
       </div>
 
-      <div className="border-t border-line px-7 py-[26px] text-center">
+      <div className="py-3 text-center">
         <span className="font-mono text-[13px] text-faint">
-          Design e Construção por Carlos Varão © {year}
+          Design e Construção por Carlos Varão © 2025
         </span>
       </div>
     </footer>
