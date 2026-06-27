@@ -1,4 +1,3 @@
-import { Image } from "lucide-react";
 import { aboutBlocks, personalValues } from "@/data/about";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -17,9 +16,9 @@ export function About() {
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[0.7fr_1.3fr]">
         <Reveal>
           <PhotoPlaceholder
-            icon={Image}
-            label="foto pessoal"
-            className="aspect-[4/5] w-full"
+            caminhoImg="/perfil2.jpeg"
+            className="aspect-[3/5] w-full"
+            classNameImg="object-cover"
           />
         </Reveal>
 

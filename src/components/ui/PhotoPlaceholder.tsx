@@ -1,19 +1,17 @@
-import type { LucideIcon } from "lucide-react";
-
 interface PhotoPlaceholderProps {
-  icon: LucideIcon;
-  label: string;
+  caminhoImg: string;
   className?: string;
+  classNameImg?: string;
 }
 
 /**
  * Placeholder elegante para imagem (substitua por <img> com a foto real).
- * Ex.: <img src="/sua-foto.jpg" alt="Carlos Varão" className="h-full w-full object-cover" />
+ * Ex.: <img src="/perfil1.jpg" alt="Carlos Varão" className="h-full w-full object-cover" />
  */
 export function PhotoPlaceholder({
-  icon: Icon,
-  label,
+  caminhoImg,
   className = "",
+  classNameImg = "",
 }: PhotoPlaceholderProps) {
   return (
     <div
@@ -21,8 +19,7 @@ export function PhotoPlaceholder({
     >
       <div className="photo-stripes absolute inset-0" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 text-faint">
-        <Icon className="h-11 w-11 opacity-60" strokeWidth={1.5} />
-        <span className="font-mono text-xs tracking-[0.05em]">{label}</span>
+        <img src={caminhoImg} alt="Carlos Varão" className={classNameImg} />
       </div>
     </div>
   );

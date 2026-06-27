@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Download, Mail, UserRound } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { ModalEmail } from "@/components/ui/ModalEmail";
 
@@ -90,9 +90,9 @@ export function Hero() {
             className="relative mx-auto w-[340px] animate-floaty md:mx-0"
           >
             <PhotoPlaceholder
-              icon={UserRound}
-              label="foto profissional"
+              caminhoImg="/perfil1.jpg"
               className="h-[430px] w-full"
+              classNameImg="h-full w-full object-cover"
             />
             <div className="absolute -left-[18px] bottom-[18px] rounded-xl border border-line bg-surface px-4 py-3 shadow-soft">
               <div className="mb-[3px] font-mono text-[11px] text-faint">
