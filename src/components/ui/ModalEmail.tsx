@@ -2,9 +2,9 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { X, Send, Loader2 } from "lucide-react";
 
-const SERVICE_ID = "service_ilbg5co";
-const TEMPLATE_ID = "template_46yzh7q";
-const PUBLIC_KEY = "TnLd8tMXzfFuWNxNS";
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
 const initialValues = { remetente: "", assunto: "", messagem: "" };
 
@@ -42,7 +42,9 @@ export function ModalEmail({ onClose }: Props) {
 
     setLoading(true);
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, { publicKey: PUBLIC_KEY });
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, {
+        publicKey: PUBLIC_KEY,
+      });
       showToast("E-mail enviado com sucesso!", true);
       setValues(initialValues);
     } catch (err) {
@@ -61,7 +63,7 @@ export function ModalEmail({ onClose }: Props) {
       {/* Toast */}
       {toast && (
         <div
-          className={`fixed top-8 right-6 z-50 rounded-lg px-4 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 ${
+          className={`fixed right-6 top-8 z-50 rounded-lg px-4 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 ${
             toast.ok ? "bg-emerald-500/90" : "bg-red-500/90"
           }`}
         >
@@ -75,7 +77,9 @@ export function ModalEmail({ onClose }: Props) {
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-line px-8 py-5">
-          <h2 className="font-display text-xl font-bold text-ink">Enviar mensagem</h2>
+          <h2 className="font-display text-xl font-bold text-ink">
+            Enviar mensagem
+          </h2>
           <button
             onClick={onClose}
             className="rounded-full p-1.5 text-muted transition-colors hover:bg-surface2 hover:text-ink"
@@ -93,11 +97,15 @@ export function ModalEmail({ onClose }: Props) {
                 className="w-full rounded-lg border border-line bg-surface2 px-4 py-2.5 text-sm text-ink placeholder:text-faint focus:border-accent focus:outline-none"
                 placeholder="Digite seu e-mail..."
                 value={values.remetente}
-                onChange={(e) => setValues({ ...values, remetente: e.target.value })}
+                onChange={(e) =>
+                  setValues({ ...values, remetente: e.target.value })
+                }
               />
             </div>
             <div className="flex flex-1 flex-col gap-2">
-              <label className="text-sm font-medium text-ink">Destinatário</label>
+              <label className="text-sm font-medium text-ink">
+                Destinatário
+              </label>
               <input
                 className="w-full cursor-not-allowed rounded-lg border border-line bg-surface2 px-4 py-2.5 text-sm text-faint focus:outline-none"
                 disabled
@@ -112,7 +120,9 @@ export function ModalEmail({ onClose }: Props) {
               className="w-full rounded-lg border border-line bg-surface2 px-4 py-2.5 text-sm text-ink placeholder:text-faint focus:border-accent focus:outline-none"
               placeholder="Ex: Dúvida sobre o Projeto X"
               value={values.assunto}
-              onChange={(e) => setValues({ ...values, assunto: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, assunto: e.target.value })
+              }
             />
           </div>
 
@@ -123,7 +133,9 @@ export function ModalEmail({ onClose }: Props) {
               placeholder="Digite sua mensagem aqui..."
               maxLength={2000}
               value={values.messagem}
-              onChange={(e) => setValues({ ...values, messagem: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, messagem: e.target.value })
+              }
             />
           </div>
         </div>
@@ -141,7 +153,11 @@ export function ModalEmail({ onClose }: Props) {
             disabled={loading}
             className="inline-flex items-center gap-2 rounded-lg border border-accent bg-accent px-6 py-2.5 text-sm font-semibold transition-all duration-300 hover:shadow-[0_8px_20px_-8px_var(--accent-soft)] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Send className="h-4 w-4" />
+            )}
             {loading ? "Enviando..." : "Enviar"}
           </button>
         </div>
