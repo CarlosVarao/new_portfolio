@@ -21,7 +21,7 @@ export function Skills() {
           const Icon = group.icon;
           return (
             <Reveal key={group.title} delay={i * 0.05} className={i === skillGroups.length - 1 ? "md:col-span-2" : ""}>
-              <div className="h-full rounded-[18px] border border-line bg-surface p-5">
+              <div className="h-full rounded-[18px] border border-line bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent">
                 <div className="mb-[22px] flex items-center gap-3">
                   <span className="grid h-[42px] w-[42px] place-items-center rounded-[11px] bg-accent-soft text-accent">
                     <Icon className="h-5 w-5" />
