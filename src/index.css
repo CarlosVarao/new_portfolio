@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Design tokens — tema escuro (padrão) e claro
+   ========================================================= */
+:root {
+  --bg: #0a0a0e;
+  --bg2: #0e0e14;
+  --surface: #13131a;
+  --surface2: #181820;
+  --border: rgba(255, 255, 255, 0.08);
+  --border2: rgba(255, 255, 255, 0.16);
+  --text: #ececee;
+  --muted: #9a9aa3;
+  --faint: #65656e;
+  --accent: #f59e0b;
+  --accent-2: #fbbf24;
+  --accent-soft: rgba(245, 158, 11, 0.13);
+  --glow: rgba(245, 158, 11, 0.22);
+  --grid: rgba(255, 255, 255, 0.045);
+}
+
+html.light {
+  --bg: #fafaf7;
+  --bg2: #f1f1ec;
+  --surface: #ffffff;
+  --surface2: #f6f6f2;
+  --border: rgba(12, 12, 16, 0.1);
+  --border2: rgba(12, 12, 16, 0.2);
+  --text: #15151a;
+  --muted: #54545d;
+  --faint: #8c8c95;
+  --accent: #b45309;
+  --accent-2: #92400e;
+  --accent-soft: rgba(180, 83, 9, 0.09);
+  --glow: rgba(245, 158, 11, 0.3);
+  --grid: rgba(12, 12, 16, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  ::selection {
+    background: rgba(245, 158, 11, 0.28);
+  }
+
+  /* Respeita usuários que preferem menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Grid técnico do hero */
+.tech-grid {
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 60% 30%,
+    #000 30%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 60% 30%,
+    #000 30%,
+    transparent 78%
+  );
+}
+
+/* Placeholder de imagem listrado */
+.photo-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--grid) 0 12px,
+    transparent 12px 24px
+  );
+}
