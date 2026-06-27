@@ -45,11 +45,7 @@ export function Projects() {
               const Icon = project.icon;
               return (
                 <Reveal key={project.name} delay={i * 0.05}>
-                  <button
-                    type="button"
-                    onClick={() => setSelected(project)}
-                    className="group flex h-full w-full flex-col rounded-[18px] border border-line bg-surface p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-soft"
-                  >
+                  <div className="group flex h-full w-full flex-col rounded-[18px] border border-line bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-soft">
                     <div className="mb-4 flex items-center gap-3">
                       <span className="grid h-11 w-11 flex-none place-items-center rounded-[11px] bg-accent-soft text-accent">
                         <Icon className="h-5 w-5" />
@@ -67,11 +63,15 @@ export function Projects() {
                       <div className="font-display text-[22px] font-bold text-accent">
                         {project.metric}
                       </div>
-                      <span className="font-mono text-[11px] text-accent transition-colors">
+                      <button
+                        type="button"
+                        onClick={() => setSelected(project)}
+                        className="font-mono text-[11px] text-accent transition-colors hover:underline"
+                      >
                         ver detalhes →
-                      </span>
+                      </button>
                     </div>
-                  </button>
+                  </div>
                 </Reveal>
               );
             })}

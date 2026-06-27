@@ -37,7 +37,7 @@ export function Education() {
             const Icon = item.icon;
             return (
               <Reveal key={item.title} delay={i * 0.05}>
-                <div className="h-full rounded-2xl border border-line bg-surface p-[26px] transition-all duration-300 hover:-translate-y-[3px] hover:border-accent">
+                <div className="flex h-full flex-col rounded-2xl border border-line bg-surface p-[26px] transition-all duration-300 hover:-translate-y-[3px] hover:border-accent hover:shadow-soft">
                   <div className="mb-4 flex items-center justify-between">
                     <span className="grid h-11 w-11 place-items-center rounded-[11px] bg-accent-soft text-accent">
                       <Icon className="h-5 w-5" />
@@ -51,17 +51,19 @@ export function Education() {
                   </h3>
                   <div className="mb-1 text-sm text-muted">{item.org}</div>
                   {item.year && <div className="font-mono text-xs text-faint">{item.year}</div>}
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 flex items-center gap-1.5 font-mono text-[11px] text-accent transition-opacity hover:opacity-70"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" />
-                      ver certificado
-                    </a>
-                  )}
+                  <div className="mt-auto pt-3">
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] text-accent transition-colors hover:underline"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                        ver certificado →
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             );
