@@ -4,50 +4,57 @@ import type { Education } from "./types";
 export const education: Education[] = [
   {
     icon: GraduationCap,
-    title: "Bacharelado em Engenharia de Software",
-    org: "Faculdade Anhanguera",
-    year: "",
+    logo: "/anhanguera.jpg",
+    title: "Bacharelado em Eng. de Software",
+    institution: "Faculdade Anhanguera",
     type: "CURSANDO",
-    link: "",
+    courses: [{ title: "Bacharelado em Engenharia de Software", link: "" }],
   },
   {
     icon: Award,
-    title: "ABAP do Zero",
-    org: "Moovi",
-    year: "",
+    logo: "/moovi.jpg",
+    title: "Academia ABAP / Integrações PI / PO / CPI",
+    institution: "Moovi",
     type: "SAP",
-    link: "https://moovi.curseduca.pro/verify/974237744b66a3af204b9c10bd7e49e50ab7f130",
-  },
-  {
-    icon: Award,
-    title: "ABAP S/4HANA",
-    org: "Moovi",
-    year: "",
-    type: "SAP",
-    link: "https://moovi.curseduca.pro/verify/d9268e34e929babab2edf51e5263822f810e479e",
-  },
-  {
-    icon: Award,
-    title: "CDS Views",
-    org: "Moovi",
-    year: "",
-    type: "SAP",
-    link: "https://moovi.curseduca.pro/verify/1ec6ac9e66cb856ac858507b6ea4f4760b7f7215",
+    courses: [
+      {
+        title: "ABAP do Zero",
+        link: "https://moovi.curseduca.pro/verify/974237744b66a3af204b9c10bd7e49e50ab7f130",
+      },
+      {
+        title: "ABAP S/4HANA",
+        link: "https://moovi.curseduca.pro/verify/d9268e34e929babab2edf51e5263822f810e479e",
+      },
+      {
+        title: "CDS Views",
+        link: "https://moovi.curseduca.pro/verify/1ec6ac9e66cb856ac858507b6ea4f4760b7f7215",
+      },
+    ],
   },
   {
     icon: Bug,
-    title: "Debug para Consultores SAP",
-    org: "Descomplicando Linguagens",
-    year: "",
+    logo: "/descomplicando.jpg",
+    title: "DL Academy",
+    institution: "Descomplicando Linguagens",
     type: "SAP",
-    link: "https://www.descomplicandolinguagens.com.br/certificate/bcd015ad-9df5-11ee-9a3c-5254006119a7/user_2y5obQTiMUCGXN7vPgfVnO6qhWD",
+    courses: [
+      {
+        title: "Debug para Consultores SAP",
+        link: "https://www.descomplicandolinguagens.com.br/certificate/bcd015ad-9df5-11ee-9a3c-5254006119a7/user_2y5obQTiMUCGXN7vPgfVnO6qhWD",
+      },
+    ],
   },
   {
     icon: Database,
+    logo: "/alura.jpg",
     title: "Engenharia de Dados com Python",
-    org: "Alura",
-    year: "",
+    institution: "Alura",
     type: "DADOS",
-    link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274?lang",
+    courses: [
+      {
+        title: "Python para Dados: primeiros passos",
+        link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274?lang",
+      },
+    ],
   },
 ];

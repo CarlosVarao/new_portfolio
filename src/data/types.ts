@@ -44,13 +44,18 @@ export interface Differential {
   text: string;
 }
 
+export interface EducationCourse {
+  title: string;
+  link?: string;
+}
+
 export interface Education {
   icon: LucideIcon;
+  logo?: string;
   title: string;
-  org: string;
-  year: string;
+  institution: string;
   type: string;
-  link?: string;
+  courses: EducationCourse[];
 }
 
 export interface SocialLink {
