@@ -31,6 +31,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       "RAP",
       "OData",
+      "SAP Gateway",
       "ABAP",
       "PI/PO",
       "SAP BW",
@@ -59,6 +60,17 @@ export const skillGroups: SkillGroup[] = [
     title: "Ferramentas Gerais",
     tag: "TOOLING",
     icon: Server,
-    items: ["Git", "n8n", "GitHub", "VS Code", "Figma", "Postman", "Claude IA", "ChatGPT", "Gemini", "Power Automate"],
+    items: [
+      "Git",
+      "n8n",
+      "GitHub",
+      "VS Code",
+      "Figma",
+      "Postman",
+      "Claude IA",
+      "ChatGPT",
+      "Gemini",
+      "Power Automate",
+    ],
   },
 ];
