@@ -125,10 +125,7 @@ export function Timeline() {
                   />
                 </div>
                 {on && (
-                  <div
-                    className="border-t border-line bg-surface p-5"
-                    onClick={(e) => e.stopPropagation()}
-                  >
+                  <div className="border-t border-line bg-surface p-5">
                     <div className="mb-3 flex items-start gap-3">
                       <span className="grid h-10 w-10 flex-none place-items-center overflow-hidden border border-line bg-base">
                         {s.logo ? (
