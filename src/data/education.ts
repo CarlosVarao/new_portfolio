@@ -42,6 +42,10 @@ export const education: Education[] = [
         title: "CDS Views",
         link: "https://moovi.curseduca.pro/verify/1ec6ac9e66cb856ac858507b6ea4f4760b7f7215",
       },
+      {
+        title: "Gateway e OData",
+        link: "https://moovi.curseduca.pro/verify/9b88b03e52cd18902d27e072c98820fe86467a64",
+      },
     ],
   },
   {
