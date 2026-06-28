@@ -48,7 +48,7 @@ export function ModalEducation({ item, onClose }: Props) {
               <h3 className="font-display text-[14px] font-semibold text-ink md:text-[18px]">
                 {item.title}
               </h3>
-              <span className="font-mono text-[11px] text-faint">
+              <span className="hidden font-mono text-[11px] text-faint md:block">
                 {item.type}
               </span>
             </div>
