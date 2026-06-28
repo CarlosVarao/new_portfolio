@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { timeline } from "@/data/timeline";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -13,6 +13,14 @@ export function Timeline() {
       ? null
       : stages.length - 1
   );
+
+  const cooldown = useRef(false);
+  const handleToggle = (i: number) => {
+    if (cooldown.current) return;
+    cooldown.current = true;
+    setActive(active === i ? null : i);
+    setTimeout(() => { cooldown.current = false; }, 350);
+  };
 
   const entry = active !== null ? stages[active] : null;
   const Icon = entry?.icon;
@@ -92,7 +100,7 @@ export function Timeline() {
             return (
               <div
                 key={s.year + s.role + "mob"}
-                onClick={() => setActive(active === i ? null : i)}
+                onClick={() => handleToggle(i)}
                 className={`cursor-pointer overflow-hidden rounded-[18px] border bg-surface transition-all duration-300 ${on ? "border-accent shadow-soft" : "border-line hover:-translate-y-1 hover:border-accent"} `}
               >
                 <div
