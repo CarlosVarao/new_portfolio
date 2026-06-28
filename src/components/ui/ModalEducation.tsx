@@ -33,15 +33,19 @@ export function ModalEducation({ item, onClose }: Props) {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-line p-6">
           <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 flex-none overflow-hidden place-items-center border border-line bg-surface">
+            <span className="grid h-11 w-11 flex-none place-items-center overflow-hidden border border-line bg-surface">
               {item.logo ? (
-                <img src={item.logo} alt={item.institution} className="h-full w-full object-contain p-1.5" />
+                <img
+                  src={item.logo}
+                  alt={item.institution}
+                  className="h-full w-full object-contain p-1.5"
+                />
               ) : (
                 <Icon className="h-5 w-5 text-accent" />
               )}
             </span>
             <div>
-              <h3 className="font-display text-[18px] font-semibold text-ink">
+              <h3 className="font-display text-[14px] font-semibold text-ink md:text-[18px]">
                 {item.title}
               </h3>
               <span className="font-mono text-[11px] text-faint">
