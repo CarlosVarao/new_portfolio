@@ -59,14 +59,14 @@ export function Projects() {
                       {project.summary}
                     </p>
 
-                    <div className="mt-auto flex items-end justify-between">
-                      <div className="font-display text-[22px] font-bold text-accent">
+                    <div className="mt-auto flex flex-nowrap items-center justify-between gap-2">
+                      <div className="whitespace-nowrap font-display text-[17px] font-bold text-accent md:text-[22px]">
                         {project.metric}
                       </div>
                       <button
                         type="button"
                         onClick={() => setSelected(project)}
-                        className="font-mono text-[11px] text-accent transition-colors hover:underline"
+                        className="flex-shrink-0 font-mono text-[11px] text-accent transition-colors hover:underline"
                       >
                         ver detalhes →
                       </button>
