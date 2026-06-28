@@ -69,7 +69,7 @@ export function ModalEducation({ item, onClose }: Props) {
               key={course.title}
               className="flex items-center justify-between rounded-xl border border-line bg-base2 px-4 py-3"
             >
-              <span className="text-[10px] text-ink md:text-[13px]">
+              <span className="text-[11px] text-ink md:text-[13px]">
                 {course.title}
               </span>
               {course.link ? (
