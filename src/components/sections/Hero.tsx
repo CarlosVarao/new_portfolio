@@ -36,7 +36,7 @@ export function Hero() {
         {/* Brilho do acento */}
         <div className="pointer-events-none absolute -right-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
 
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 px-7 py-[110px] md:grid-cols-[1.25fr_0.9fr] md:pt-[120px]">
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 px-7 py-[72px] md:grid-cols-[1.25fr_0.9fr] md:py-[110px] md:pt-[120px]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,13 +53,13 @@ export function Hero() {
               Carlos Varão
             </h1>
 
-            <p className="mb-5 font-display text-[18px] font-medium leading-[1.5] text-accent">
+            <p className="mb-5 w-full font-display text-[15px] font-medium leading-[1.5] text-accent md:text-[16px]">
               Engenheiro de Dados&nbsp;&middot;&nbsp;SAP
               ABAP&nbsp;&middot;&nbsp;SAP PI/PO/CPI&nbsp;&middot;&nbsp;SAP
               Datasphere&nbsp;&middot;&nbsp;Desenvolvimento, Integração e Dados
             </p>
 
-            <p className="mb-9 text-justify text-[17px] leading-[1.7]">
+            <p className="mb-9 text-justify text-[15px] leading-[1.7]">
               Profissional com foco em soluções corporativas, atuando em
               Engenharia de Dados e integração de sistemas, com experiência no
               ecossistema SAP e em projetos de dados envolvendo extração,
@@ -70,15 +70,17 @@ export function Hero() {
             <div className="flex flex-wrap gap-3.5">
               <button
                 onClick={handleDownloadCV}
-                className="inline-flex items-center gap-2.5 rounded-[11px] border border-accent bg-accent px-6 py-3.5 text-[15px] text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_-12px_var(--accent-soft)]"
+                className="inline-flex items-center gap-1.5 rounded-[9px] border border-accent bg-accent px-4 py-2.5 text-[13px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_-12px_var(--accent-soft)] md:gap-2.5 md:rounded-[11px] md:px-6 md:py-3.5 md:text-[15px]"
               >
-                <Download className="h-[17px] w-[17px]" /> Baixar currículo
+                <Download className="h-[13px] w-[13px] md:h-[17px] md:w-[17px]" />{" "}
+                Baixar currículo
               </button>
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex items-center gap-2.5 rounded-[11px] border border-line bg-surface px-6 py-3.5 text-[15px] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-line2 hover:bg-surface2"
+                className="inline-flex items-center gap-1.5 rounded-[9px] border border-line bg-surface px-4 py-2.5 text-[13px] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-line2 hover:bg-surface2 md:gap-2.5 md:rounded-[11px] md:px-6 md:py-3.5 md:text-[15px]"
               >
-                <Mail className="h-[17px] w-[17px]" /> Entrar em contato
+                <Mail className="h-[13px] w-[13px] md:h-[17px] md:w-[17px]" />{" "}
+                Entrar em contato
               </button>
             </div>
           </motion.div>
@@ -87,7 +89,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease }}
-            className="relative mx-auto w-[340px] animate-floaty md:mx-0"
+            className="relative mx-auto hidden w-[340px] animate-floaty md:mx-0 md:block"
           >
             <PhotoPlaceholder
               caminhoImg="/perfil1.jpg"

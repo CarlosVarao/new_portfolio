@@ -8,10 +8,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const stages = [...timeline].reverse();
 
 export function Timeline() {
-  const [active, setActive] = useState(stages.length - 1);
+  const [active, setActive] = useState<number | null>(() =>
+    typeof window !== "undefined" && window.innerWidth < 768
+      ? null
+      : stages.length - 1
+  );
 
-  const entry = stages[active];
-  const Icon = entry.icon;
+  const entry = active !== null ? stages[active] : null;
+  const Icon = entry?.icon;
   const total = String(stages.length).padStart(2, "0");
 
   return (
@@ -23,7 +27,7 @@ export function Timeline() {
       <div className="tech-grid pointer-events-none absolute inset-0 animate-gridDrift" />
       {/* Brilho do acento */}
       <div className="pointer-events-none absolute -left-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
-      <div className="mx-auto max-w-[1200px] px-7 py-[110px]">
+      <div className="mx-auto max-w-[1200px] px-7 py-[72px] md:py-[110px]">
         <div className="mb-[54px] flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             index="02"
@@ -35,7 +39,8 @@ export function Timeline() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            clique em um estágio
+            <span className="hidden md:inline">clique em um estágio</span>
+            <span className="inline md:hidden">toque para expandir</span>
           </div>
         </div>
 
@@ -79,8 +84,94 @@ export function Timeline() {
           }
         `}</style>
 
-        {/* Pipeline (blocos) -------------------------------------------- */}
-        <Reveal>
+        {/* Mobile: accordion vertical ------------------------------------ */}
+        <div className="block space-y-3.5 md:hidden">
+          {stages.map((s, i) => {
+            const on = i === active;
+            const SIcon = s.icon;
+            return (
+              <div
+                key={s.year + s.role + "mob"}
+                onClick={() => setActive(active === i ? null : i)}
+                className={`cursor-pointer overflow-hidden rounded-[18px] border bg-surface transition-all duration-300 ${on ? "border-accent shadow-soft" : "border-line hover:-translate-y-1 hover:border-accent"} `}
+              >
+                <div
+                  className={`flex w-full items-center justify-between gap-3 p-5 text-left transition-colors duration-300 ${on ? "bg-base2" : ""}`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`font-mono text-[11px] ${on ? "text-accent" : "text-faint"}`}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <div
+                        className={`font-display text-[14px] font-semibold leading-snug ${on ? "text-ink" : "text-muted"}`}
+                      >
+                        {s.role}
+                      </div>
+                      <div
+                        className={`font-mono text-[11px] ${on ? "text-accent" : "text-faint"}`}
+                      >
+                        {s.year}
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    className={`h-[7px] w-[7px] flex-none rounded-full transition-all ${on ? "bg-accent" : "bg-line2"}`}
+                    style={
+                      on ? { boxShadow: "0 0 8px var(--accent)" } : undefined
+                    }
+                  />
+                </div>
+                {on && (
+                  <div
+                    className="border-t border-line bg-surface p-5"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="mb-3 flex items-start gap-3">
+                      <span className="grid h-10 w-10 flex-none place-items-center overflow-hidden border border-line bg-base">
+                        {s.logo ? (
+                          <img
+                            src={s.logo}
+                            alt={s.company}
+                            className="h-full w-full object-contain p-1"
+                          />
+                        ) : (
+                          <SIcon className="h-4 w-4 text-accent" />
+                        )}
+                      </span>
+                      <div>
+                        <div className="font-display text-[15px] font-semibold leading-tight text-ink">
+                          {s.role}
+                        </div>
+                        <div className="mt-0.5 text-xs text-muted">
+                          {s.company}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mb-3 text-justify text-[13px] leading-[1.65] text-muted">
+                      {s.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {s.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-md border border-line px-2.5 py-1 font-mono text-[11px] text-accent"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Pipeline (blocos) ------------------------------------ */}
+        <Reveal className="hidden md:block">
           <div className="-mx-7 overflow-x-auto px-7 py-2">
             <div className="relative flex min-w-[860px] items-stretch justify-between gap-3.5">
               {/* Trilho + partículas */}
@@ -158,8 +249,9 @@ export function Timeline() {
           </div>
         </Reveal>
 
-        {/* Detalhe do estágio selecionado ------------------------------- */}
+        {/* Detalhe do estágio selecionado (desktop) --------------------- */}
         <div
+          className={`hidden transition-opacity duration-300 md:block ${entry ? "opacity-100" : "pointer-events-none opacity-0"}`}
           style={{
             height: 400,
             marginTop: 28,
@@ -174,35 +266,33 @@ export function Timeline() {
             <div className="flex h-full flex-col md:flex-row">
               {/* Lateral */}
               <div className="flex shrink-0 flex-col gap-4 border-b border-line bg-base2 p-6 md:w-[310px] md:border-b-0 md:border-r">
-                {/* Linha 1: Estágio (esq) | Ano (dir) */}
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                    Etapa {String(active + 1).padStart(2, "0")} / {total}
+                    Etapa {String((active ?? 0) + 1).padStart(2, "0")} / {total}
                   </span>
                   <span className="rounded-lg border border-accent-soft bg-accent-soft px-3 py-1.5 font-mono text-sm font-medium text-accent">
-                    {entry.year}
+                    {entry?.year}
                   </span>
                 </div>
 
-                {/* Linha 2: Logo (esq) | Role + Company (dir) */}
                 <div className="flex items-start gap-4">
                   <span className="grid h-[52px] w-[52px] flex-none place-items-center overflow-hidden border border-line bg-surface">
-                    {entry.logo ? (
+                    {entry?.logo ? (
                       <img
                         src={entry.logo}
                         alt={entry.company}
                         className="h-full w-full object-contain p-1.5"
                       />
-                    ) : (
+                    ) : Icon ? (
                       <Icon className="h-5 w-5 text-accent" />
-                    )}
+                    ) : null}
                   </span>
                   <div>
                     <div className="font-display text-[18px] font-semibold leading-tight text-ink">
-                      {entry.role}
+                      {entry?.role}
                     </div>
                     <div className="mt-0.5 text-sm text-muted">
-                      {entry.company}
+                      {entry?.company}
                     </div>
                   </div>
                 </div>
@@ -211,10 +301,10 @@ export function Timeline() {
               {/* Conteúdo */}
               <div className="flex flex-1 flex-col overflow-y-auto p-6">
                 <p className="mb-4 flex-1 text-justify text-[13px] leading-[1.65] text-muted">
-                  {entry.description}
+                  {entry?.description}
                 </p>
                 <div className="flex flex-wrap gap-2.5 pt-4">
-                  {entry.tech.map((tech) => (
+                  {entry?.tech.map((tech) => (
                     <span
                       key={tech}
                       className="rounded-md border border-line px-2.5 py-1 font-mono text-[11px] text-accent"

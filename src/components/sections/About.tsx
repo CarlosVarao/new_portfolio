@@ -9,12 +9,12 @@ export function About() {
       id="sobre"
       className="mx-auto flex min-h-screen max-w-[1200px] flex-col justify-center px-7 py-[72px]"
     >
-      <div className="mb-5">
+      <div className="mb-12 md:mb-5">
         <SectionHeading index="01" eyebrow="SOBRE MIM" title="Quem sou" />
       </div>
 
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[0.7fr_1.3fr]">
-        <Reveal>
+        <Reveal className="hidden md:block">
           <PhotoPlaceholder
             caminhoImg="/perfil2.jpeg"
             className="aspect-[3/5] w-full"
