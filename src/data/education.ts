@@ -11,6 +11,19 @@ export const education: Education[] = [
     courses: [{ title: "Bacharelado em Engenharia de Software", link: "" }],
   },
   {
+    icon: Database,
+    logo: "/alura.jpg",
+    title: "Engenharia de Dados com Python",
+    institution: "Alura",
+    type: "DADOS",
+    courses: [
+      {
+        title: "Python para Dados: primeiros passos",
+        link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274?lang",
+      },
+    ],
+  },
+  {
     icon: Award,
     logo: "/moovi.jpg",
     title: "Academia ABAP / Integrações PI / PO / CPI",
@@ -41,19 +54,6 @@ export const education: Education[] = [
       {
         title: "Debug para Consultores SAP",
         link: "https://www.descomplicandolinguagens.com.br/certificate/bcd015ad-9df5-11ee-9a3c-5254006119a7/user_2y5obQTiMUCGXN7vPgfVnO6qhWD",
-      },
-    ],
-  },
-  {
-    icon: Database,
-    logo: "/alura.jpg",
-    title: "Engenharia de Dados com Python",
-    institution: "Alura",
-    type: "DADOS",
-    courses: [
-      {
-        title: "Python para Dados: primeiros passos",
-        link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274?lang",
       },
     ],
   },
