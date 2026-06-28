@@ -69,19 +69,21 @@ export function ModalEducation({ item, onClose }: Props) {
               key={course.title}
               className="flex items-center justify-between rounded-xl border border-line bg-base2 px-4 py-3"
             >
-              <span className="text-[13px] text-ink">{course.title}</span>
+              <span className="text-[10px] text-ink md:text-[13px]">
+                {course.title}
+              </span>
               {course.link ? (
                 <a
                   href={course.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-4 flex flex-none items-center gap-1.5 font-mono text-[11px] text-accent transition-opacity hover:opacity-70"
+                  className="ml-4 flex flex-none items-center gap-1.5 font-mono text-[10px] text-accent transition-opacity hover:opacity-70 md:text-[11px]"
                 >
-                  <ExternalLink className="h-3.5 w-3.5" />
+                  <ExternalLink className="h-3 w-3 md:h-3.5 md:w-3.5" />
                   ver certificado
                 </a>
               ) : (
-                <span className="ml-4 font-mono text-[11px] text-faint">
+                <span className="ml-4 font-mono text-[8px] text-faint md:text-[11px]">
                   em andamento
                 </span>
               )}
