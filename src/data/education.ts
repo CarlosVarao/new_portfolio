@@ -19,7 +19,12 @@ export const education: Education[] = [
     courses: [
       {
         title: "Python para Dados: primeiros passos",
-        link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274?lang",
+        link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274",
+      },
+      {
+        title:
+          "Python para Dados: trabalhando com funções, estruturas de dados e exceções",
+        link: "https://cursos.alura.com.br/certificate/e6416c42-129c-40b1-99cf-6bf444487713",
       },
     ],
   },
