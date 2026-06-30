@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Bug, Database } from "lucide-react";
+import { GraduationCap, Award, Database } from "lucide-react";
 import type { Education } from "./types";
 
 export const education: Education[] = [
@@ -51,18 +51,9 @@ export const education: Education[] = [
         title: "Gateway e OData",
         link: "https://moovi.curseduca.pro/verify/9b88b03e52cd18902d27e072c98820fe86467a64",
       },
-    ],
-  },
-  {
-    icon: Bug,
-    logo: "/descomplicando.jpg",
-    title: "DL Academy",
-    institution: "Descomplicando Linguagens",
-    type: "SAP",
-    courses: [
       {
         title: "Debug para Consultores SAP",
-        link: "https://www.descomplicandolinguagens.com.br/certificate/bcd015ad-9df5-11ee-9a3c-5254006119a7/user_2y5obQTiMUCGXN7vPgfVnO6qhWD",
+        link: "https://moovi.curseduca.pro/verify/da474645cf7e1d21e03c9642b2c24baeb680b29b",
       },
     ],
   },
