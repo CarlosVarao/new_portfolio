@@ -53,10 +53,10 @@ export function Hero() {
               Carlos Varão
             </h1>
 
-            <p className="mb-5 w-full font-display text-[15px] font-medium leading-[1.5] text-accent md:text-[16px]">
+            <p className="mb-5 max-w-[550px] font-display text-[15px] font-medium leading-[1.5] text-accent md:text-[16px]">
               Engenheiro de Dados&nbsp;&middot;&nbsp;SAP
               ABAP&nbsp;&middot;&nbsp;SAP PI/PO/CPI&nbsp;&middot;&nbsp;SAP
-              Datasphere&nbsp;&middot;&nbsp;Desenvolvimento, Integração e Dados
+              Datasphere &nbsp;&middot;&nbsp;Integração e Dados
             </p>
 
             <p className="mb-9 text-justify text-[15px] leading-[1.7]">
