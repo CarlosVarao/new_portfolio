@@ -26,6 +26,10 @@ export const education: Education[] = [
           "Python para Dados: trabalhando com funções, estruturas de dados e exceções",
         link: "https://cursos.alura.com.br/certificate/e6416c42-129c-40b1-99cf-6bf444487713",
       },
+      {
+        title: "Governança de dados: usando metadados para compreender dados",
+        link: "https://cursos.alura.com.br/certificate/2874a70c-179d-4cde-ac44-c0f6abea802e",
+      },
     ],
   },
   {
