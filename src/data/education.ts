@@ -13,7 +13,7 @@ export const education: Education[] = [
   {
     icon: Database,
     logo: "/alura.jpg",
-    title: "Engenharia de Dados com Python",
+    title: "Engenharia de Dados",
     institution: "Alura",
     type: "DADOS",
     courses: [
