@@ -18,6 +18,10 @@ export const education: Education[] = [
     type: "DADOS",
     courses: [
       {
+        title: "Engenharia de Dados: Introdução à Engenharia de Dados",
+        link: "https://cursos.alura.com.br/certificate/7a613da4-040b-4aff-976b-a771921d86e7",
+      },
+      {
         title: "Python para Dados: primeiros passos",
         link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274",
       },

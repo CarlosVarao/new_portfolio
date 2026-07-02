@@ -9,9 +9,12 @@ export const skillGroups: SkillGroup[] = [
     items: [
       "SQL",
       "AWS",
+      "ACID",
+      "GCP",
       "Azure",
       "Python",
       "PySpark",
+      "Spark kafka",
       "ETL/ELT",
       "Power BI",
       "Databricks",
