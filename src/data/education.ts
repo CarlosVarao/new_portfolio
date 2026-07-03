@@ -22,6 +22,14 @@ export const education: Education[] = [
         link: "https://cursos.alura.com.br/certificate/7a613da4-040b-4aff-976b-a771921d86e7",
       },
       {
+        title: "Governança de dados: usando metadados para compreender dados",
+        link: "https://cursos.alura.com.br/certificate/2874a70c-179d-4cde-ac44-c0f6abea802e",
+      },
+      {
+        title: "Governança de dados: conhecendo o ciclo de vida dos dados",
+        link: "https://cursos.alura.com.br/certificate/0ef99877-3c54-44ba-a43c-df4da6eb600e",
+      },
+      {
         title: "Python para Dados: primeiros passos",
         link: "https://cursos.alura.com.br/certificate/4dddfe12-5ad7-4145-b15a-2a0a6089c274",
       },
@@ -29,10 +37,6 @@ export const education: Education[] = [
         title:
           "Python para Dados: trabalhando com funções, estruturas de dados e exceções",
         link: "https://cursos.alura.com.br/certificate/e6416c42-129c-40b1-99cf-6bf444487713",
-      },
-      {
-        title: "Governança de dados: usando metadados para compreender dados",
-        link: "https://cursos.alura.com.br/certificate/2874a70c-179d-4cde-ac44-c0f6abea802e",
       },
     ],
   },
