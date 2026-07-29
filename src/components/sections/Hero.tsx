@@ -4,7 +4,7 @@ import { Download, Mail } from "lucide-react";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { ModalEmail } from "@/components/ui/ModalEmail";
 
-const CV_PATH = "/curriculo/curriculo.pdf";
+const CV_PATH = "/curriculo.pdf";
 
 async function handleDownloadCV(e: React.MouseEvent<HTMLButtonElement>) {
   e.preventDefault();
