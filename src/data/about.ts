@@ -5,12 +5,12 @@ export const aboutBlocks: AboutBlock[] = [
   {
     icon: MapPin,
     title: "Origem",
-    text: "Tenho 27 anos, nasci em Brasília e vivi grande parte da minha infância, adolescência e início da fase adulta no Tocantins, lugar onde construí uma parte importante da minha história e das minhas experiências pessoais e profissionais. Atualmente, moro em Recife, uma nova etapa da minha vida, onde venho me desenvolvendo tanto profissionalmente quanto pessoalmente, enfrentando novos desafios e adquirindo novos aprendizados.",
+    text: "Tenho 27 anos, nasci em Brasília e vivi grande parte da minha infância, adolescência e início da fase adulta no Tocantins, lugar onde construí uma parte importante da minha história pessoal e profissional. Atualmente, moro em Recife, uma nova etapa da minha trajetória, onde venho enfrentando novos desafios, ampliando meus conhecimentos e buscando constante evolução.",
   },
   {
     icon: Sparkles,
     title: "Como comecei na tecnologia",
-    text: "Minha conexão com a tecnologia começou ainda na infância, despertada pela curiosidade em entender como computadores, sistemas e equipamentos funcionavam. Desde cedo, buscava explorar esse universo, tentando compreender o que existia por trás das telas e dos processos. Essa curiosidade cresceu ao longo dos anos e me motivou a ingressar no curso de Engenharia de Software, transformando um interesse de infância em uma trajetória profissional.",
+    text: "O que me impulsiona na tecnologia é justamente essa busca por compreender problemas e transformar ideias em soluções. Ao longo da minha trajetória, desenvolvi a visão de que a tecnologia não é apenas sobre ferramentas, mas sobre criar soluções capazes de otimizar processos, gerar informações relevantes e apoiar melhores decisões.",
   },
   {
     icon: Target,
@@ -20,7 +20,7 @@ export const aboutBlocks: AboutBlock[] = [
   {
     icon: TrendingUp,
     title: "Evolução na área",
-    text: "Na área de dados, venho desenvolvendo minha atuação em engenharia de dados, trabalhando com conceitos de ETL/ELT, pipelines, Data Lakes, Data Warehouses, arquiteturas Lakehouse e outras abordagens modernas de dados, incluindo modelos como a arquitetura Medallion (Bronze, Silver e Gold), voltados para o processamento, refinamento e disponibilização de dados de forma escalável e confiável. Além disso, utilizo ferramentas como Databricks, AWS, GCP, Airflow e Airbyte, ampliando minha capacidade de ingestão, transformação e análise em ambientes distribuídos e de alta performance. No ecossistema SAP, possuo conhecimentos em ABAP, integrações, DW e Datasphere, permitindo conectar sistemas, dado e necessidades de negócio entre as camadas transacional e analítica.",
+    text: "Com essa evolução, direciono minha atuação para a área de dados, trabalhando na construção de soluções envolvendo engenharia de dados, integração, processamento e disponibilização de informações. Tenho experiência com conceitos de ETL/ELT, pipelines de dados, Data Lakes, Data Warehouses e arquiteturas modernas como Lakehouse e Medallion (Bronze, Silver e Gold), buscando estruturar dados de forma escalável, confiável e preparada para consumo analítico. Nesse contexto, utilizo tecnologias como Databricks, AWS, GCP, Airflow e Airbyte para processos de ingestão e transformação de dados. Além disso, no ecossistema SAP, possuo conhecimentos em ABAP, integrações, Data Warehousing e SAP Datasphere, conectando sistemas transacionais às necessidades analíticas do negócio.",
   },
 ];
 
