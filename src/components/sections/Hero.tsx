@@ -54,17 +54,17 @@ export function Hero() {
             </h1>
 
             <p className="mb-5 max-w-[550px] font-display text-[15px] font-medium leading-[1.5] text-accent md:text-[16px]">
-              Engenheiro de Dados&nbsp;&middot;&nbsp;SAP
-              ABAP&nbsp;&middot;&nbsp;SAP PI/PO/CPI&nbsp;&middot;&nbsp;SAP
-              Datasphere &nbsp;&middot;&nbsp;Integração e Dados
+              Engenheiro de Dados · AWS · GCP · Python · SQL · Databricks ·
+              PySpark · Airflow · Airbyte · Terraform · SAP Datasphere · SAP CPI
+              · SAP ABAP · SAP S/4HANA
             </p>
 
             <p className="mb-9 text-justify text-[15px] leading-[1.7]">
-              Profissional com foco em soluções corporativas, atuando em
-              Engenharia de Dados e integração de sistemas, com experiência no
-              ecossistema SAP e em projetos de dados envolvendo extração,
-              transformação e integração entre diferentes plataformas e sistemas
-              corporativos.
+              Sou Engenheiro de Dados e trabalho na construção de pipelines,
+              integrações e soluções de dados que ajudam empresas a organizar,
+              conectar e utilizar melhor suas informações. Tenho experiência com
+              tecnologias modernas de Engenharia de Dados e com o ecossistema
+              SAP, desenvolvendo soluções eficientes e escaláveis.
             </p>
 
             <div className="flex flex-wrap gap-3.5">
