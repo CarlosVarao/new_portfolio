@@ -19,7 +19,9 @@ export function Timeline() {
     if (cooldown.current) return;
     cooldown.current = true;
     setActive(active === i ? null : i);
-    setTimeout(() => { cooldown.current = false; }, 350);
+    setTimeout(() => {
+      cooldown.current = false;
+    }, 350);
   };
 
   const entry = active !== null ? stages[active] : null;
@@ -35,7 +37,7 @@ export function Timeline() {
       <div className="tech-grid pointer-events-none absolute inset-0 animate-gridDrift" />
       {/* Brilho do acento */}
       <div className="pointer-events-none absolute -left-20 -top-36 h-[520px] w-[520px] animate-glowPulse rounded-full bg-[radial-gradient(circle,var(--glow),transparent_65%)] blur-[28px]" />
-      <div className="mx-auto max-w-[1200px] px-7 py-[72px] md:py-[110px]">
+      <div className="mx-auto max-w-[1350px] px-7 py-[72px] md:py-[110px]">
         <div className="mb-[54px] flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             index="02"
@@ -258,7 +260,7 @@ export function Timeline() {
         <div
           className={`hidden transition-opacity duration-300 md:block ${entry ? "opacity-100" : "pointer-events-none opacity-0"}`}
           style={{
-            height: 400,
+            height: 420,
             marginTop: 28,
             overflow: "hidden",
             borderRadius: 16,
